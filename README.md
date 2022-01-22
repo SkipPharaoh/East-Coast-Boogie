@@ -1,8 +1,6 @@
 # East-Coast-Boogie
 A couple cool cities if you're on a road trip on the east coast!
 
-## Project Description
-
 
 ## Table of Contents (Maybe)
 #### Low-Fidelity Wireframes
@@ -10,6 +8,7 @@ A couple cool cities if you're on a road trip on the east coast!
 ![](./ECB_Wireframes/project2-home.png)
 
 ## East Coast Boogie Overview
+## Project Description
 #### User Stories
 As a user, I will arrive at the East Coast Boogie home page. On the home page I will see a nav bar with four cities that are clickable, bringing me to each city’s homepage. I will also see a carousel of images representing each city. I will also be able to click on each photo bringing me to that city’s page.
  
