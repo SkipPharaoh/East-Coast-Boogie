@@ -27,7 +27,7 @@ Within each city’s homepage I will see a list of categories such as places to 
  
 
 #### Database ERD Diagrams
-
+![](./assets/erd-diagram.png)
 
 #### RESTful Routing Chart 
 ![](./assets/routing-chart.png)
