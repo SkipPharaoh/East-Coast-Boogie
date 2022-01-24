@@ -111,9 +111,15 @@ app.put('/comments/:id', (req,res)=>{
     })
 })
 
-// delete
-app.delete('/comments/:id', (req,res)=>{
-    res.redirect('/comments')
+app.delete('/comments/:id', (req, res)=> {
+    const deleteComment = (err, deleteMsg) => {
+        if(err) {
+            return res.send(err)
+        }
+        console.log(deleteMsg)
+        res.redirect('/comments')
+    }
+    Comment.deleteOne({_id : req.params.id},deleteComment)
 })
 
 

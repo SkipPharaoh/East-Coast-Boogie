@@ -17,5 +17,14 @@
     <p>Been here before? : <%=comment.beenHereBefore%></p>
 
     <a href="/comments/<%=comment._id%>/edit">Edit Comment</a>
+
+    
+
+
+    <form method="POST" action="/comments/<%=comment._id%>?_method=DELETE">
+            <input type="submit" value="Delete <%=comment.name%>">
+        </form>
+    
+    
 </body>
 </html>
