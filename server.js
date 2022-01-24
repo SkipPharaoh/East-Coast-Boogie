@@ -2,7 +2,7 @@
 const express = require('express')
 const app = express()
 const methodOverride = require('method-override')
-const PORT = 7000
+const PORT = 8000
 
 // Mongoose Config
 const mongoose = require('mongoose')
@@ -18,8 +18,13 @@ app.use(express.urlencoded({extended:false}))
 app.use(methodOverride('_method'))
 
     // RESTful Routes //
+app.get('/cities', (req,res)=>{
+    res.send('Main Cities page')
+})
+app.get('/', (req,res)=>{
+    res.send('Main home page')
+})
 
-    
 // Start Server
 app.listen(PORT, ()=>{
     console.log(`Server is live on port ${PORT}`)
