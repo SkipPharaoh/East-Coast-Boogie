@@ -3,6 +3,7 @@ const express = require('express')
 const app = express()
 const methodOverride = require('method-override')
 const PORT = 8000
+const Comment = require('./models/Comments.js')
 
 // Mongoose Config
 const mongoose = require('mongoose')
@@ -43,7 +44,11 @@ app.get('/detroit', (req,res)=>{
 // Comments Routes
 // index
 app.get('/comments', (req,res)=>{
-    res.render('comments.ejs')
+    Comment.find({}, (err, foundComment) => {
+        res.render('comments.ejs', {
+            comment: foundComment
+        })
+    })
 })
 
 // new
@@ -53,23 +58,57 @@ app.get('/comments/new', (req,res)=>{
 
 // edit
 app.get('/comments/:id/edit', (req,res)=>{
-    res.send('Edit Comment')
+    // res.send('Edit Comment')
+    Comment.findById(req.params.id, (err, foundComment) => {
+        res.render('commentsEdit.ejs', {
+            comment: foundComment,
+            id: req.params.id
+        })
+    })
 })
 
 // show
 app.get('/comments/:id', (req,res)=>{
     // res.send('Comments show page')
-    res.render('commentsShow.ejs')
+    const id = req.params.id
+    Comment.findById(id, (err, foundComment) => {
+        res.render('commentsShow.ejs', {
+            comment: foundComment
+        })
+    })
 })
+
+
 
 // create
 app.post('/comments', (req,res)=>{
-    res.redirect('/comments')
+    if (req.body.beenHereBefore === "on"){
+        req.body.beenHereBefore = true
+    } else {
+        req.body.beenHereBefore = false
+    }
+    Comment.create(req.body, (err, createdComment) => {
+        if(err) {
+            console.log(err)
+            res.send(err)
+        }else {
+            console.log(createdComment)
+            res.redirect('/comments')
+        }
+        // res.redirect('/comments')
+    })
 })
 
 // update
-app.put('/comment/:id', (req,res)=>{
-    res.redirect('/comments/:id')
+app.put('/comments/:id', (req,res)=>{
+    if (req.body.beenHereBefore === "on"){
+        req.body.beenHereBefore = true
+    } else {
+        req.body.beenHereBefore = false
+    }
+    Comment.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedComment) => {
+        res.redirect('/comments/' + req.params.id)
+    })
 })
 
 // delete

@@ -13,3 +13,8 @@ const commentsSchema = new mongoose.Schema({
         type: Boolean
     }
 },{timestamps: true})
+
+
+const Comment = mongoose.model('Comments', commentsSchema);
+
+module.exports = Comment;
