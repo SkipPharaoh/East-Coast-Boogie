@@ -8,6 +8,14 @@
 </head>
 <body>
     <h1>Comments Show Page</h1>
-    <%- include('./partials/nav.ejs')%>
+    <nav>
+        <%- include('./partials/nav.ejs')%>
+    </nav>
+
+    <p>Name: <%=comment.name%></p>
+    <p>Comment: <%=comment.comment%></p>
+    <p>Been here before? : <%=comment.beenHereBefore%></p>
+
+    <a href="/comments/<%=comment._id%>/edit">Edit Comment</a>
 </body>
 </html>

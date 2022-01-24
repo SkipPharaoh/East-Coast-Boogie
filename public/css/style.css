@@ -1,10 +1,10 @@
-div{
+nav{
    background-color: skyblue; 
    width: 100%;
 }
-div ul{
+nav ul{
     text-align: center;
 }
-div ul li{
+nav ul li{
     display: inline-block;
 }

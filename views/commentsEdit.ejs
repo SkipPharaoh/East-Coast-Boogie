@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edits</title>
+</head>
+<body>
+    <h1>Comments Edit Page</h1>
+
+    <form method="POST" action="/comments/<%= comment._id %>?_method=PUT">
+        <legend>
+            <label for="Name">
+                Name: <br/>
+                <input id="name" type="text" value="<%= comment.name%>" name="name" required placeholder="edit your name here">
+            </label>
+            <br/><br/>
+        </legend>
+        <legend>
+            <label for="comment">
+                Comment: <br/>
+            <textarea rows="6" cols="60"id="comment" value="<%=comment.comment%> "name="comment"></textarea>
+        </legend>
+        <h2>Have you been here before: <input type="checkbox" name="beenHereBefore" 
+            <% if(comment.beenHereBefore === true) { %>
+                checked
+            <% } %>
+            ></h2>
+        
+        <input type="submit" value="Edit comment">
+    </form>
+</body>
+</html>
