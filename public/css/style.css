@@ -1,0 +1,10 @@
+div{
+   background-color: skyblue; 
+   width: 100%;
+}
+div ul{
+    text-align: center;
+}
+div ul li{
+    display: inline-block;
+}

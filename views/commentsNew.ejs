@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Comment</title>
+</head>
+<body>
+    <h1>Enter New Comment Here</h1>
+    <form action="/comments" method="POST">
+        <legend>
+            <label for="Name">
+                Name: <br/>
+                <input id="name" type="text" name="name" required placeholder="enter your name here">
+            </label>
+            <br/><br/>
+        </legend>
+        <legend>
+            <label for="comment">
+                Comment: <br/>
+            <textarea rows="6" cols="60"id="comment" name="comment"></textarea>
+        </legend>
+        <h2>Have you been here before: <input type="checkbox" name="beenHereBefore"></h2>
+        <input type="submit" value="Created comment">
+    </form>
+</body>
+</html>
