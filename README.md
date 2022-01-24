@@ -18,13 +18,20 @@ Within each city’s homepage I will see a list of categories such as places to 
 
 
 #### MVP Goals
+1)	Render a home page with light css styling
+2)	Have a One to One link set-up for one city item 
+3)	Have a city page with light css styling 
+
 
 
 #### Stretch Goals
 1) Have multiple cities
 2) Have a link for each item, that's displayed under each category, so that takes you to a page that shows an in-depth  description of the activity.
 3) Turn our one main comment section to a city-based for each unique city
- 
+4) Incoporate mobile-responsive UI / styling
+5) Incorporate third-party API
+6) render group name in read me 
+
 
 #### Database ERD Diagrams
 
