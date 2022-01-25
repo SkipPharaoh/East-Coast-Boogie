@@ -13,7 +13,7 @@ const Category = require('./models/Category.js')
 function makePoi(data){
 
 Category.create(data).then(testLocation =>{
-        console.log(testLocation)
+        console.log(data)
         process.exit()
     })
 }
