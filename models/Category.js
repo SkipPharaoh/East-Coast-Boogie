@@ -1,47 +1,34 @@
 const mongoose = require('mongoose')
 
 const categorySchema = new mongoose.Schema({
-    placesToEat: {
+    pointsOfInterest: {
         name: {
             type: String,
-            required: true
+            // required: true
         },
         cuisine: {
             type: String,
-            required: true
+            
         },
         location: {
             type: String
-        }
-    },
-    landmarks: {
-        name: {
-            type: String,
-            required: true
-        },
-        location: {
-            type: String,
-            required: true
         },
         hours: {
             type: String
-        }
-    },
-    events: {
-        name: {
-            type: String,
-            required: true 
-        },
-        location: {
-            type: String,
-            required: true
-        },
-        hours: {
-            type: String,
-            required: true
         },
         payForEntrance: {
             type: Boolean
+        },
+        category: {
+            type: String,
+            enum: ['landmarks','placesToEat','events'],
+            // required: true
+        },
+        city: {
+            type: String, 
+            enum: ['Atlanta','Detroit','Tampa','New York'],
+            // required: true
+            
         }
     }
 })
