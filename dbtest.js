@@ -51,8 +51,6 @@ async function createAtlanta() {
         let piedmontPark = await Category.create(atlLandmark1)
         let centennialPark = await Category.create(atlLandmark2)
         let georgiaAquarium = await Category.create(atlLandmark3)
-        let atlantaZoo = await Category.create(atlLandmark4)
-        let stoneMountainPark = await Category.create(atlLandmark5)
         // Restaurants
         let sluttyVegan = await Category.create(atlRestaurant1)
         let theVarsity = await Category.create(atlRestaurant2)
@@ -64,7 +62,7 @@ async function createAtlanta() {
 
         atlanta.categories.push(
             // Landmarks
-            piedmontPark, centennialPark, georgiaAquarium, atlantaZoo, stoneMountainPark,
+            piedmontPark, centennialPark, georgiaAquarium,
             // Restaurants
             sluttyVegan, theVarsity, waffleHouse, hattieB,
             //Events
@@ -101,21 +99,6 @@ const atlLandmark3 = {
     category: 'landmarks',
 }
 
-const atlLandmark4 = {
-    name: "Atlanta Zoo",
-    location: "Grant Park",
-    hours: "9am to 3:30pm",
-    payForEntrance: true,
-    category: 'landmarks',
-}
-
-const atlLandmark5 = {
-    name: "Stone Mountain Park",
-    location: "Stone Mountain",
-    hours: "Closed Indefinitely",
-    payForEntrance: false,
-    category: 'landmarks',
-}
 
 const atlRestaurant1 = {
     name: "Slutty Vegan",
@@ -165,9 +148,354 @@ const atlEvent2 = {
     category: 'events',
 }
 
+const atlEvent3 = {
+    name: "",
+    location: "",
+    hours: "",
+    payForEntrance: false,
+    category: "events"
+}
+
 
 // DETROIT
 
+async function createAtlanta() {
+    try {
+        let atlanta = await City.create({ name: 'Atlanta' })
+        // Landmarks
+        let piedmontPark = await Category.create(atlLandmark1)
+        let centennialPark = await Category.create(atlLandmark2)
+        let georgiaAquarium = await Category.create(atlLandmark3)
+        // Restaurants
+        let sluttyVegan = await Category.create(atlRestaurant1)
+        let theVarsity = await Category.create(atlRestaurant2)
+        let waffleHouse = await Category.create(atlRestaurant3)
+        let hattieB = await Category.create(atlRestaurant4)
+        // Events
+        let houseInThePark = await Category.create(atlEvent1)
+        let trapBrunch = await Category.create(atlEvent2)
+
+        atlanta.categories.push(
+            // Landmarks
+            piedmontPark, centennialPark, georgiaAquarium,
+            // Restaurants
+            sluttyVegan, theVarsity, waffleHouse, hattieB,
+            //Events
+            houseInThePark, trapBrunch
+            )
+        atlanta.save()
+    } catch(err) {
+        console.log(err)
+    }
+}
+
+
+const atlLandmark1 = {
+    name: "Piedmont Park",
+    location: "Midtown",
+    hours: "6am to 11pm",
+    payForEntrance: false,
+    category: 'landmarks',
+}
+
+const atlLandmark2 = {
+    name: "Centennial Olympic Park",
+    location: "Downtown",
+    hours: "24hours",
+    payForEntrance: false,
+    category: 'landmarks',
+}
+
+const atlLandmark3 = {
+    name: "Georgia Aquarium",
+    location: "Downtown",
+    hours: "9am to 6pm",
+    payForEntrance: true,
+    category: 'landmarks',
+}
+
+
+const atlRestaurant1 = {
+    name: "Slutty Vegan",
+    location: "Inman Park",
+    hours: "12pm to Midnight",
+    payForEntrance: false,
+    category: 'placesToEat',
+}
+
+const atlRestaurant2 = {
+    name: "The Varsity",
+    location: "Midtown",
+    hours: "11am to 8pm",
+    payForEntrance: false,
+    category: 'placesToEat',
+}
+
+const atlRestaurant3 = {
+    name: "Waffle House",
+    location: "Corners all over",
+    hours: "24 hours",
+    payForEntrance: false,
+    category: 'placesToEat',
+}
+
+const atlRestaurant4 = {
+    name: "Hattie B's Hot Chicken",
+    location: "Little 5 Points",
+    hours: "11am to 10pm",
+    payForEntrance: false,
+    category: 'placesToEat',
+}
+
+const atlEvent1 = {
+    name: "House In The Park",
+    location: "Piedmont Park",
+    hours: "7pm to Midnight from April to October every Saturday",
+    payForEntrance: false,
+    category: 'events',
+}
+
+const atlEvent2 = {
+    name: "Trap Brunch",
+    location: "Flying Biscuit Cafe",
+    hours: "10am to 3:30pm every Saturday",
+    payForEntrance: false,
+    category: 'events',
+}
+
+const atlEvent3 = {
+    name: "",
+    location: "",
+    hours: "",
+    payForEntrance: false,
+    category: "events"
+}
+
 // NEW YORK CITY
 
+async function createAtlanta() {
+    try {
+        let atlanta = await City.create({ name: 'Atlanta' })
+        // Landmarks
+        let piedmontPark = await Category.create(atlLandmark1)
+        let centennialPark = await Category.create(atlLandmark2)
+        let georgiaAquarium = await Category.create(atlLandmark3)
+        // Restaurants
+        let sluttyVegan = await Category.create(atlRestaurant1)
+        let theVarsity = await Category.create(atlRestaurant2)
+        let waffleHouse = await Category.create(atlRestaurant3)
+        let hattieB = await Category.create(atlRestaurant4)
+        // Events
+        let houseInThePark = await Category.create(atlEvent1)
+        let trapBrunch = await Category.create(atlEvent2)
+
+        atlanta.categories.push(
+            // Landmarks
+            piedmontPark, centennialPark, georgiaAquarium,
+            // Restaurants
+            sluttyVegan, theVarsity, waffleHouse, hattieB,
+            //Events
+            houseInThePark, trapBrunch
+            )
+        atlanta.save()
+    } catch(err) {
+        console.log(err)
+    }
+}
+
+
+
+const atlLandmark1 = {
+    name: "Piedmont Park",
+    location: "Midtown",
+    hours: "6am to 11pm",
+    payForEntrance: false,
+    category: 'landmarks',
+}
+
+const atlLandmark2 = {
+    name: "Centennial Olympic Park",
+    location: "Downtown",
+    hours: "24hours",
+    payForEntrance: false,
+    category: 'landmarks',
+}
+
+const atlLandmark3 = {
+    name: "Georgia Aquarium",
+    location: "Downtown",
+    hours: "9am to 6pm",
+    payForEntrance: true,
+    category: 'landmarks',
+}
+
+
+const atlRestaurant1 = {
+    name: "Slutty Vegan",
+    location: "Inman Park",
+    hours: "12pm to Midnight",
+    payForEntrance: false,
+    category: 'placesToEat',
+}
+
+const atlRestaurant2 = {
+    name: "The Varsity",
+    location: "Midtown",
+    hours: "11am to 8pm",
+    payForEntrance: false,
+    category: 'placesToEat',
+}
+
+const atlRestaurant3 = {
+    name: "Waffle House",
+    location: "Corners all over",
+    hours: "24 hours",
+    payForEntrance: false,
+    category: 'placesToEat',
+}
+
+const atlRestaurant4 = {
+    name: "Hattie B's Hot Chicken",
+    location: "Little 5 Points",
+    hours: "11am to 10pm",
+    payForEntrance: false,
+    category: 'placesToEat',
+}
+
+const atlEvent1 = {
+    name: "House In The Park",
+    location: "Piedmont Park",
+    hours: "7pm to Midnight from April to October every Saturday",
+    payForEntrance: false,
+    category: 'events',
+}
+
+const atlEvent2 = {
+    name: "Trap Brunch",
+    location: "Flying Biscuit Cafe",
+    hours: "10am to 3:30pm every Saturday",
+    payForEntrance: false,
+    category: 'events',
+}
+
+const atlEvent3 = {
+    name: "",
+    location: "",
+    hours: "",
+    payForEntrance: false,
+    category: "events"
+}
+
+
 // TAMPA
+
+async function createAtlanta() {
+    try {
+        let atlanta = await City.create({ name: 'Atlanta' })
+        // Landmarks
+        let piedmontPark = await Category.create(atlLandmark1)
+        let centennialPark = await Category.create(atlLandmark2)
+        let georgiaAquarium = await Category.create(atlLandmark3)
+        // Restaurants
+        let sluttyVegan = await Category.create(atlRestaurant1)
+        let theVarsity = await Category.create(atlRestaurant2)
+        let waffleHouse = await Category.create(atlRestaurant3)
+        let hattieB = await Category.create(atlRestaurant4)
+        // Events
+        let houseInThePark = await Category.create(atlEvent1)
+        let trapBrunch = await Category.create(atlEvent2)
+
+        atlanta.categories.push(
+            // Landmarks
+            piedmontPark, centennialPark, georgiaAquarium,
+            // Restaurants
+            sluttyVegan, theVarsity, waffleHouse, hattieB,
+            //Events
+            houseInThePark, trapBrunch
+            )
+        atlanta.save()
+    } catch(err) {
+        console.log(err)
+    }
+}
+
+const atlLandmark1 = {
+    name: "Piedmont Park",
+    location: "Midtown",
+    hours: "6am to 11pm",
+    payForEntrance: false,
+    category: 'landmarks',
+}
+
+const atlLandmark2 = {
+    name: "Centennial Olympic Park",
+    location: "Downtown",
+    hours: "24hours",
+    payForEntrance: false,
+    category: 'landmarks',
+}
+
+const atlLandmark3 = {
+    name: "Georgia Aquarium",
+    location: "Downtown",
+    hours: "9am to 6pm",
+    payForEntrance: true,
+    category: 'landmarks',
+}
+
+
+const atlRestaurant1 = {
+    name: "Slutty Vegan",
+    location: "Inman Park",
+    hours: "12pm to Midnight",
+    payForEntrance: false,
+    category: 'placesToEat',
+}
+
+const atlRestaurant2 = {
+    name: "The Varsity",
+    location: "Midtown",
+    hours: "11am to 8pm",
+    payForEntrance: false,
+    category: 'placesToEat',
+}
+
+const atlRestaurant3 = {
+    name: "Waffle House",
+    location: "Corners all over",
+    hours: "24 hours",
+    payForEntrance: false,
+    category: 'placesToEat',
+}
+
+const atlRestaurant4 = {
+    name: "Hattie B's Hot Chicken",
+    location: "Little 5 Points",
+    hours: "11am to 10pm",
+    payForEntrance: false,
+    category: 'placesToEat',
+}
+
+const atlEvent1 = {
+    name: "House In The Park",
+    location: "Piedmont Park",
+    hours: "7pm to Midnight from April to October every Saturday",
+    payForEntrance: false,
+    category: 'events',
+}
+
+const atlEvent2 = {
+    name: "Trap Brunch",
+    location: "Flying Biscuit Cafe",
+    hours: "10am to 3:30pm every Saturday",
+    payForEntrance: false,
+    category: 'events',
+}
+
+const atlEvent3 = {
+    name: "",
+    location: "",
+    hours: "",
+    payForEntrance: false,
+    category: "events"
+}
