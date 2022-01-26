@@ -40,8 +40,24 @@ app.get('/atl', (req,res)=>{
                 res.send(err)
             } else {
                 console.log(foundCity)
-                res.render('atl.ejs',
-                {city: foundCity})
+                let placesToEat = []
+                let placesToSee = []
+                let thingsToDo = []
+                for(let i = 0; i < foundCity.categories.length; i++) {
+                    if(foundCity.categories[i].category === 'landmarks') {
+                        placesToSee.push(foundCity.categories[i])
+                    } else if (foundCity.categories[i].category === 'placesToEat') {
+                        placesToEat.push(foundCity.categories[i])
+                    } else {
+                        thingsToDo.push(foundCity.categories[i])
+                    }
+                }
+                res.render('atl.ejs',{
+                    city: foundCity,
+                    restaurants: placesToEat,
+                    landmarks: placesToSee,
+                    events: thingsToDo
+                })
             }
         }
     )
