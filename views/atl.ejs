@@ -41,6 +41,9 @@
 
         <div>
             <a href="/comments/new">Comment about ATL</a>
+            <% for (let i=0; i<comments.length;i++){ %>
+                <P><%= comments[i].name %></P>
+            <% } %>
         </div>
     </div>
 
