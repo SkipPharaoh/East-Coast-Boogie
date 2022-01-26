@@ -2,8 +2,12 @@ const mongoose = require('mongoose')
 const citiesSchema = new mongoose.Schema ({
     name: {
         type: String,
-        required: true
-    }
+        required: true,
+    },
+    categories: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Category'
+    }]
 })
 
 const City = mongoose.model('City', citiesSchema)

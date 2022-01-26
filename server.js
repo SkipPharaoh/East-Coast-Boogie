@@ -8,6 +8,7 @@ const atlController = require('./controllers/atl')
 
 
 
+
 // Mongoose Config
 const mongoose = require('mongoose')
 const URI = 'mongodb://127.0.0.1:27017/eastCoastBoogie'
@@ -21,8 +22,6 @@ app.use(express.static('public'))
 app.use(express.urlencoded({extended:false}))
 app.use(methodOverride('_method'))
 
-//Controllers
-app.use('/atl', atlController)
 
     // RESTful Routes //
 app.get('/cities', (req,res)=>{
@@ -32,6 +31,7 @@ app.get('/cities', (req,res)=>{
 
 app.get('/atl', (req,res)=>{
     // res.send('Main home page')
+    
     res.render('atl.ejs')
 })
 app.get('/tampa', (req,res)=>{

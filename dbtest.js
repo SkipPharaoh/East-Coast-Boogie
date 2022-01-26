@@ -1,91 +1,93 @@
-const { create} = require('domain')
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://127.0.0.1:27017/categoryTestDB')
+mongoose.connect('mongodb://127.0.0.1:27017/eastCoastBoogie')
 let db = mongoose.connection
-db.on('connected', ()=>"connected to mongodb")
-
-const categorySchema = new mongoose.Schema({
-        name: {
-            type: String,
-            // required: true
-        },
-        cuisine: {
-            type: String,
-            
-        },
-        location: {
-            type: String
-        },
-        hours: {
-            type: String
-        },
-        payForEntrance: {
-            type: Boolean
-        },
-        category: {
-            type: String,
-            enum: ['landmarks','placesToEat','events'],
-            // required: true
-        },
-        city: {
-            type: String, 
-            enum: ['Atlanta','Detroit','Tampa','New York'],
-            // required: true
-            
-        }
+db.on('connected', ()=> {
+    main()
 })
 
 
-const Category = mongoose.model('Category', categorySchema)
-//const Category = require('./models/Category.js')
-function makePoi(data){
-    Category.create(data).then(testLocation =>{
-        console.log(data)
-        console.log(testLocation)
-        process.exit()
-    })
+const Category = require('./models/Category.js')
+const City = require('./models/City.js')
+
+
+// Step1 : connect to MONGODB
+// Step2 : Wipe the database for the city and category collections
+// Step3 : Make ATL, DET, TAMPA, NY
+// Step4 : Make all the places(categories)
+// Step5 : Add the categories to the places using .save
+
+
+// add cuisine to restaurants
+
+async function main() {
+    try {
+        await wipeDatabase()
+        await createAtlanta()
+    } catch(err) {
+
+    }
 }
 
 
-const testPerson = {
+
+async function wipeDatabase() { 
+    try {
+        let deletedMessages = await Category.deleteMany({})
+        console.log(deletedMessages)
+        let cityDeletedMessage = await City.deleteMany({})
+        console.log(cityDeletedMessage)
+    } catch(err) {
+        console.log(err)
+    }
+}
+
+async function createAtlanta() {
+    try {
+        let atlanta = await City.create({ name: 'Atlanta' })
+        let piedmontPark = await Category.create(place1)
+        let centennialPark = await Category.create(place2)
+        atlanta.categories.push(piedmontPark, centennialPark)
+        atlanta.save()
+    } catch(err) {
+        console.log(err)
+    }
+}
+
+
+const place1 = {
     name: "Piedmont Park",
     location: "Midtown",
     hours: "6am to 11pm",
     payForEntrance: false,
     category: 'landmarks',
-    city: 'Atlanta'
 }
-const testPerson1 = {
+const place2 = {
     name: "Centennial Olympic Park",
     location: "Downtown",
     hours: "24hours",
     payForEntrance: false,
     category: 'landmarks',
-    city: 'Atlanta'
 }
-const testPerson2 = {
+const place3 = {
     name: "Georgia Aquarium",
     location: "Downtown",
     hours: "9am to 6pm",
     payForEntrance: true,
     category: 'landmarks',
-    city: 'Atlanta'
 }
-const testPerson3 = {
+const place4 = {
     name: "Atlanta Zoo",
     location: "Grant Park",
     hours: "9am to 3:30pm",
     payForEntrance: true,
     category: 'landmarks',
-    city: 'Atlanta'
 }
-const testPerson4 = {
+const place5 = {
     name: "Stone Mountain Park",
     location: "Stone Mountain",
     hours: "Closed Indefinitely",
     payForEntrance: false,
     category: 'landmarks',
-    city: 'Atlanta'
 }
 const restaurant1 = {
     name: "Slutty Vegan",
@@ -93,7 +95,6 @@ const restaurant1 = {
     hours: "12pm to Midnight",
     payForEntrance: false,
     category: 'placesToEat',
-    city: 'Atlanta'
 }
 const restaurant2 = {
     name: "The Varsity",
@@ -101,7 +102,6 @@ const restaurant2 = {
     hours: "11am to 8pm",
     payForEntrance: false,
     category: 'placesToEat',
-    city: 'Atlanta'
 }
 const restaurant3 = {
     name: "Waffle House",
@@ -109,7 +109,6 @@ const restaurant3 = {
     hours: "24 hours",
     payForEntrance: false,
     category: 'placesToEat',
-    city: 'Atlanta'
 }
 const restaurant4 = {
     name: "Hattie B's Hot Chicken",
@@ -117,7 +116,6 @@ const restaurant4 = {
     hours: "11am to 10pm",
     payForEntrance: false,
     category: 'placesToEat',
-    city: 'Atlanta'
 }
 const event1 = {
     name: "House In The Park",
@@ -125,7 +123,6 @@ const event1 = {
     hours: "7pm to Midnight from April to October every Saturday",
     payForEntrance: false,
     category: 'events',
-    city: 'Atlanta'
 }
 const event2 = {
     name: "Trap Brunch",
@@ -133,10 +130,4 @@ const event2 = {
     hours: "10am to 3:30pm every Saturday",
     payForEntrance: false,
     category: 'events',
-    city: 'Atlanta'
 }
-
-makePoi(testPerson)
-
-  
-
