@@ -11,6 +11,7 @@ const atlController = require('./controllers/atl')
 
 // Mongoose Config
 const mongoose = require('mongoose')
+const City = require('./models/City.js')
 const URI = 'mongodb://127.0.0.1:27017/eastCoastBoogie'
 mongoose.connect(URI, ()=>{console.log('Mongoose connected at: ' +URI)})
 
@@ -31,7 +32,7 @@ app.get('/cities', (req,res)=>{
 
 app.get('/atl', (req,res)=>{
     // res.send('Main home page')
-    
+    City.findById(req.params.id).populate('Category').exec()
     res.render('atl.ejs')
 })
 app.get('/tampa', (req,res)=>{
