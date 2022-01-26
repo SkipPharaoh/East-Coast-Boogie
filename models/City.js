@@ -7,6 +7,10 @@ const citiesSchema = new mongoose.Schema ({
     categories: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Category'
+    }],
+    comments: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Comments'
     }]
 })
 

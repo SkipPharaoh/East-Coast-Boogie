@@ -11,6 +11,11 @@ const commentsSchema = new mongoose.Schema({
     },
     beenHereBefore: {
         type: Boolean
+    },
+    city: {
+        type: String,
+        enum: ['Atlanta', 'Detroit', 'New York', 'Tampa'],
+        // required: true
     }
 },{timestamps: true})
 
