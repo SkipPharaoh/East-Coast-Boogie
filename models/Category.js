@@ -7,7 +7,6 @@ const categorySchema = new mongoose.Schema({
         },
         cuisine: {
             type: String,
-            
         },
         location: {
             type: String
