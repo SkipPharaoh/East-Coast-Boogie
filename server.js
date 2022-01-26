@@ -35,30 +35,34 @@ app.get('/atl', (req,res)=>{
     // res.send('Main home page')
     City.findOne({name: 'Atlanta'}).populate('categories').exec(
         (err, foundCity) => {
-            if (err) {
-                console.log(err)
-                res.send(err)
-            } else {
-                console.log(foundCity)
-                let placesToEat = []
-                let placesToSee = []
-                let thingsToDo = []
-                for(let i = 0; i < foundCity.categories.length; i++) {
-                    if(foundCity.categories[i].category === 'landmarks') {
-                        placesToSee.push(foundCity.categories[i])
-                    } else if (foundCity.categories[i].category === 'placesToEat') {
-                        placesToEat.push(foundCity.categories[i])
-                    } else {
-                        thingsToDo.push(foundCity.categories[i])
+            Comment.find({city: foundCity.name}).then((comments)=>{
+                console.log('ALL COMMENTS: ', comments)
+                if (err) {
+                    console.log(err)
+                    res.send(err)
+                } else {
+                    // console.log(foundCity)
+                    let placesToEat = []
+                    let placesToSee = []
+                    let thingsToDo = []
+                    for(let i = 0; i < foundCity.categories.length; i++) {
+                        if(foundCity.categories[i].category === 'landmarks') {
+                            placesToSee.push(foundCity.categories[i])
+                        } else if (foundCity.categories[i].category === 'placesToEat') {
+                            placesToEat.push(foundCity.categories[i])
+                        } else {
+                            thingsToDo.push(foundCity.categories[i])
+                        }
                     }
+                    res.render('atl.ejs',{
+                        city: foundCity,
+                        restaurants: placesToEat,
+                        landmarks: placesToSee,
+                        events: thingsToDo,
+                        comments: comments
+                    })
                 }
-                res.render('atl.ejs',{
-                    city: foundCity,
-                    restaurants: placesToEat,
-                    landmarks: placesToSee,
-                    events: thingsToDo
-                })
-            }
+            })
         }
     )
 })
