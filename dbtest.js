@@ -58,6 +58,3 @@ const testPerson = {
 }
 
 makePoi(testPerson)
-
-  
-
