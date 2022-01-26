@@ -4,6 +4,9 @@ const app = express()
 const methodOverride = require('method-override')
 const PORT = 8000
 const Comment = require('./models/Comments.js')
+const atlController = require('./controllers/atl')
+
+
 
 // Mongoose Config
 const mongoose = require('mongoose')
@@ -17,6 +20,9 @@ app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({extended:false}))
 app.use(methodOverride('_method'))
+
+//Controllers
+app.use('/atl', atlController)
 
     // RESTful Routes //
 app.get('/cities', (req,res)=>{

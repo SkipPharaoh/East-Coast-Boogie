@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')
 
 const categorySchema = new mongoose.Schema({
-    pointsOfInterest: {
         name: {
             type: String,
             // required: true
@@ -30,7 +29,6 @@ const categorySchema = new mongoose.Schema({
             // required: true
             
         }
-    }
 })
 
 const Category = mongoose.model('Category', categorySchema)
