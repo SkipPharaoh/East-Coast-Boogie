@@ -15,13 +15,11 @@
 
         <li>Restaurants
             
-                
-                <% for(let i = 0; i < city.categories.length; i++) { %>
-                    <p><%= city.categories[i].name%></p>
-                    <p><%= city.categories[i].location%></p>
-                    <p><%= city.categories[i].hours%></p>
-                <% } %>
-            
+            <% for(let i = 0; i < city.categories.length; i++) { %>
+                <p><%= city.categories[i].name%></p>
+                <p><%= city.categories[i].location%></p>
+                <p><%= city.categories[i].hours%></p>
+            <% } %>
             
         </li>
         <li>Landmarks</li>
