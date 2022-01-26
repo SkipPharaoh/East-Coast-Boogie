@@ -11,6 +11,42 @@
     <nav>
         <%- include('./partials/nav.ejs')%>
     </nav>
-    
+    <div class="responsive-container">
+
+        <li>Restaurants
+            <% for(let i = 0; i <)
+        </li>
+        <li>Landmarks</li>
+        <li>Events</li>
+
+    </div>
+
+
+
+
+    <style>
+    .responsive-container {
+  display: grid;
+  grid-gap: 1%;
+  grid-template-columns: repeat(6, 1fr);
+  padding: 0;
+  margin-bottom: 25px;
+}
+
+    .responsive-container li {
+  border: 3px solid black;
+  height: 500px;
+  list-style-type: none;
+  padding: 0;
+}
+
+@media (min-width: 400px) {
+    .responsive-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+       
+    </style>
+
 </body>
 </html>
