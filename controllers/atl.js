@@ -7,3 +7,5 @@ const City = require('../models/City')
 router.get('/atl', (req,res)=>{
     res.send('ATL Home page')
 })
+
+module.exports = router
