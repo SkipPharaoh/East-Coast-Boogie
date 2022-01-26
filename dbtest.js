@@ -23,7 +23,9 @@ async function main() {
     try {
         await wipeDatabase()
         await createAtlanta()
+        await createAtlanta()
         await createNYC()
+        await createTampa()
     } catch(err) {
 
     }
@@ -390,113 +392,105 @@ const nycEvent3 = {
 
 // TAMPA
 
-async function createAtlanta() {
+async function createTampa() {
     try {
-        let atlanta = await City.create({ name: 'Atlanta' })
+        let tampa = await City.create({ name: 'Tampa' })
         // Landmarks
-        let piedmontPark = await Category.create(atlLandmark1)
-        let centennialPark = await Category.create(atlLandmark2)
-        let georgiaAquarium = await Category.create(atlLandmark3)
+        let buschGardens = await Category.create(tpaLandmark1)
+        let tampaMuseumOfArt = await Category.create(tpaLandmark2)
+        let floridaAquarium = await Category.create(tpaLandmark3)
         // Restaurants
-        let sluttyVegan = await Category.create(atlRestaurant1)
-        let theVarsity = await Category.create(atlRestaurant2)
-        let waffleHouse = await Category.create(atlRestaurant3)
-        let hattieB = await Category.create(atlRestaurant4)
+        let berns = await Category.create(tpaRestaurant1)
+        let ciros = await Category.create(tpaRestaurant2)
+        let columbiaRestaurant = await Category.create(tpaRestaurant3)
         // Events
-        let houseInThePark = await Category.create(atlEvent1)
-        let trapBrunch = await Category.create(atlEvent2)
+        let gasparilla = await Category.create(tpaEvent1)
+        let liveAndLocal = await Category.create(tpaEvent2)
+        let yogaOnTheLawn = await Category.create(tpaEvent3)
 
-        atlanta.categories.push(
+        tampa.categories.push(
             // Landmarks
-            piedmontPark, centennialPark, georgiaAquarium,
+            buschGardens, tampaMuseumOfArt, floridaAquarium,
             // Restaurants
-            sluttyVegan, theVarsity, waffleHouse, hattieB,
+            berns, ciros, columbiaRestaurant,
             //Events
-            houseInThePark, trapBrunch
+            gasparilla, liveAndLocal, yogaOnTheLawn
             )
-        atlanta.save()
+        tampa.save()
     } catch(err) {
         console.log(err)
     }
 }
 
-const atlLandmark1 = {
-    name: "Piedmont Park",
-    location: "Midtown",
-    hours: "6am to 11pm",
-    payForEntrance: false,
+const tpaLandmark1 = {
+    name: "Busch Gardens",
+    location: "Temple Terrace",
+    hours: "10am to 8pm",
+    payForEntrance: true,
     category: 'landmarks',
 }
 
-const atlLandmark2 = {
-    name: "Centennial Olympic Park",
+const tpaLandmark2 = {
+    name: "Tampa Museum of Art",
     location: "Downtown",
-    hours: "24hours",
-    payForEntrance: false,
+    hours: "10am-5pm",
+    payForEntrance: true,
     category: 'landmarks',
 }
 
-const atlLandmark3 = {
-    name: "Georgia Aquarium",
-    location: "Downtown",
-    hours: "9am to 6pm",
+const tpaLandmark3 = {
+    name: "Florida Aquarium",
+    location: "Channelside",
+    hours: "9:30am to 5:30pm",
     payForEntrance: true,
     category: 'landmarks',
 }
 
 
-const atlRestaurant1 = {
-    name: "Slutty Vegan",
-    location: "Inman Park",
-    hours: "12pm to Midnight",
+const tpaRestaurant1 = {
+    name: "Bern's Steak House",
+    location: "Hyde Park",
+    hours: "5pm-10pm",
     payForEntrance: false,
     category: 'placesToEat',
 }
 
-const atlRestaurant2 = {
-    name: "The Varsity",
-    location: "Midtown",
-    hours: "11am to 8pm",
+const tpaRestaurant2 = {
+    name: "Ciro's Tampa",
+    location: "Hyde Park",
+    hours: "5pm-3am",
     payForEntrance: false,
     category: 'placesToEat',
 }
 
-const atlRestaurant3 = {
-    name: "Waffle House",
-    location: "Corners all over",
-    hours: "24 hours",
+const tpaRestaurant3 = {
+    name: "Columbia Restaurant",
+    location: "Ybor",
+    hours: "11am-9pm",
     payForEntrance: false,
     category: 'placesToEat',
 }
 
-const atlRestaurant4 = {
-    name: "Hattie B's Hot Chicken",
-    location: "Little 5 Points",
-    hours: "11am to 10pm",
-    payForEntrance: false,
-    category: 'placesToEat',
-}
-
-const atlEvent1 = {
-    name: "House In The Park",
-    location: "Piedmont Park",
-    hours: "7pm to Midnight from April to October every Saturday",
+const tpaEvent1 = {
+    name: "Gasparilla",
+    location: "Tampa",
+    hours: "the last weekend in January",
     payForEntrance: false,
     category: 'events',
 }
 
-const atlEvent2 = {
-    name: "Trap Brunch",
-    location: "Flying Biscuit Cafe",
-    hours: "10am to 3:30pm every Saturday",
+const tpaEvent2 = {
+    name: "Live & Local",
+    location: "Riverwalk Stage",
+    hours: "First weekend of every month",
     payForEntrance: false,
     category: 'events',
 }
 
-const atlEvent3 = {
-    name: "",
-    location: "",
-    hours: "",
+const tpaEvent3 = {
+    name: "Yoga on the Lawn",
+    location: "Armature Works",
+    hours: "9:30am-10:30am the 2nd & 4th sunday of the month",
     payForEntrance: false,
     category: "events"
 }
