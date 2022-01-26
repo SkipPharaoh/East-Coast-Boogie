@@ -31,6 +31,7 @@ app.get('/cities', (req,res)=>{
 
 app.get('/atl', (req,res)=>{
     // res.send('Main home page')
+    
     res.render('atl.ejs')
 })
 app.get('/tampa', (req,res)=>{
