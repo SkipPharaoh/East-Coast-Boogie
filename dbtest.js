@@ -1,4 +1,4 @@
-const { create } = require('domain')
+const { create} = require('domain')
 const mongoose = require('mongoose')
 mongoose.connect('mongodb://127.0.0.1:27017/categoryTestDB')
 let db = mongoose.connection
@@ -13,7 +13,7 @@ const Category = require('./models/Category.js')
 function makePoi(data){
 
 Category.create(data).then(testLocation =>{
-        console.log(data)
+        console.log(test)
         process.exit()
     })
 }
