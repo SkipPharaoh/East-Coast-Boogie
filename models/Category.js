@@ -7,7 +7,6 @@ const categorySchema = new mongoose.Schema({
         },
         cuisine: {
             type: String,
-            
         },
         location: {
             type: String
@@ -27,7 +26,6 @@ const categorySchema = new mongoose.Schema({
             type: String, 
             enum: ['Atlanta','Detroit','Tampa','New York'],
             // required: true
-            
         }
 })
 
