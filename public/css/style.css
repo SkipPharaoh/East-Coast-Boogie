@@ -1,10 +1,38 @@
-nav{
-   background-color: skyblue; 
+.navbar {
+   border: 1px solid black;
    width: 100%;
 }
-nav ul{
+.navbar ul{
+    text-align: center;
+
+}
+.navbar ul li{
+    display: inline-block;
+    font-size: 36px;
+}
+
+.navbar ul li a {
+    padding: 0 42px
+}
+
+a { text-decoration: none; color: black;}
+a:visited { text-decoration: none; color:black; }
+a:hover { text-decoration: none; color:black; }
+a:focus { text-decoration: none; color:black; }
+a:hover, a:active { text-decoration: none; color:black }
+
+.main-title {
     text-align: center;
 }
-nav ul li{
+
+.title {
     display: inline-block;
+    margin: 0 auto;
+    font-size: 60px;
+    border: 1px solid black;
+}
+
+.detroit {
+    font-family: 'Bebas Neue', cursive;
+    color: orangered;
 }
