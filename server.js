@@ -24,6 +24,21 @@ app.use(express.static('public'))
 app.use(express.urlencoded({extended:false}))
 app.use(methodOverride('_method'))
 
+// Sort Categories Function //
+// function sortCategories(){
+//     let placesToEat = []
+//     let placesToSee = []
+//     let thingsToDo = []
+//     for(let i = 0; i < foundCity.categories.length; i++) {
+//         if(foundCity.categories[i].category === 'landmarks') {
+//             placesToSee.push(foundCity.categories[i])
+//         } else if (foundCity.categories[i].category === 'placesToEat') {
+//             placesToEat.push(foundCity.categories[i])
+//         } else {
+//             thingsToDo.push(foundCity.categories[i])
+//         }
+//     }
+// }
 
     // RESTful Routes //
 app.get('/cities', (req,res)=>{
@@ -93,6 +108,9 @@ app.get('/nyc', (req,res)=>{
                             thingsToDo.push(foundCity.categories[i])
                         }
                     }
+                    // console.log(placesToEat)
+                    // console.log(placesToSee)
+                    // console.log(thingsToDo)
                     res.render('nyc.ejs',{
                         city: foundCity,
                         restaurants: placesToEat,
