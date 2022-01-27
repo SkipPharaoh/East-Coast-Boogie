@@ -11,5 +11,63 @@
     <nav>
         <%- include('./partials/nav.ejs')%>
     </nav>
+    <div class="responsive-container">
+        <div class="topic">
+            <u>Restaurants</u>
+            <% for (let i=0; i<restaurants[i].length; i++) { %>
+                <p>Name : <%= restaurants[i].name%></p>
+                <p>Location : <%= restaurants[i].location%></p>
+                <p>Hours : <%= restaurants[i].hours%></p>
+                <br>
+            <% } %>
+        </div>
+        <div class="topic">
+            <u>Landmarks</u>
+            <% for (let i=0; i<landmarks[i].length; i++) { %>
+                <p>Name : <%= landmarks[i].name%></p>
+                <p>Location : <%= landmarks[i].location%></p>
+                <p>Hours : <%= landmarks[i].hours%></p>
+                <br>
+            <% } %>
+        </div>
+        <div class="topic">
+            <u>Events</u>
+            <% for (let i=0; i<events[i].length; i++) { %>
+                <p>Name : <%= events[i].name%></p>
+                <p>Location : <%= events[i].location%></p>
+                <p>Hours : <%= events[i].hours%></p>
+                <br>
+            <% } %>
+        </div>
+        <div>
+            <a href="/comments/new">Comment about NYC</a>
+            <% for (let i=0; i<comments.length;i++) { %>
+                <p><%=comments[i].name%></p>
+            <% } %>
+        </div>
+    </div>
+    <style>
+        .responsive-container {
+      display: grid;
+      grid-gap: 1%;
+      grid-template-columns: repeat(6, 1fr);
+      padding: 0;
+      margin-bottom: 25px;
+    }
+   
+        .topic {
+      border: 3px solid black;
+      height: 800px;
+      list-style-type: none;
+      padding: 0;
+    }
+   
+    @media (min-width: 400px) {
+        .responsive-container {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+          
+   </style>
 </body>
 </html>

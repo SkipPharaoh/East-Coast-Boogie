@@ -72,7 +72,38 @@ app.get('/tampa', (req,res)=>{
 })
 app.get('/nyc', (req,res)=>{
     // res.send('Main home page')
-    res.render('nyc.ejs')
+    City.findOne({name: 'New York'}).populate('categories').exec(
+        (err, foundCity) => {
+            Comment.find({city: foundCity.name}).then((comments)=>{
+                console.log('ALL COMMENTS: ', comments)
+                if (err) {
+                    console.log(err)
+                    res.send(err)
+                } else {
+                    // console.log(foundCity)
+                    let placesToEat = []
+                    let placesToSee = []
+                    let thingsToDo = []
+                    for(let i = 0; i < foundCity.categories.length; i++) {
+                        if(foundCity.categories[i].category === 'landmarks') {
+                            placesToSee.push(foundCity.categories[i])
+                        } else if (foundCity.categories[i].category === 'placesToEat') {
+                            placesToEat.push(foundCity.categories[i])
+                        } else {
+                            thingsToDo.push(foundCity.categories[i])
+                        }
+                    }
+                    res.render('nyc.ejs',{
+                        city: foundCity,
+                        restaurants: placesToEat,
+                        landmarks: placesToSee,
+                        events: thingsToDo,
+                        comments: comments
+                    })
+                }
+            })
+        }
+    )
 })
 app.get('/detroit', (req,res)=>{
     // res.send('Main home page')
