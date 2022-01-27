@@ -37,3 +37,7 @@ a:hover, a:active { text-decoration: none; color:black }
     color: orangered;
 }
 
+.tpa {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #006994;
+}
