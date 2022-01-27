@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>East Coast Boogie</title>
+    <link rel="stylesheet" href="/public/css/style.css">
 </head>
 <body>
     <nav>
@@ -13,12 +14,162 @@
 
     <p class="description">A couple cool cities if you're on a road trip on the east coast!</p>
 
+    <div class="carousel-wrapper">
+        <span id="item-1"></span>
+        <span id="item-2"></span>
+        <span id="item-3"></span>
+        <span id="item-4"></span>
+        <div class="carousel-item item-1">
+          <a href="#item-4" class="arrow-prev arrow"></a>
+          <a href="#item-2" class="arrow-next arrow"></a>
+        </div>
+    
+        <div class="carousel-item item-2">
+          <a href="#item-1" class="arrow-prev arrow"></a>
+          <a href="#item-3" class="arrow-next arrow"></a>
+        </div>
+    
+        <div class="carousel-item item-3">
+          <a href="#item-2" class="arrow-prev arrow"></a>
+          <a href="#item-4" class="arrow-next arrow"></a>
+        </div>
+
+        <div class="carousel-item item-4">
+            <a href="#item-3" class="arrow-prev arrow"></a>
+            <a href="#item-1" class="arrow-next arrow"></a>
+          </div>
+    
+      </div>
+
+
     <style>
         .description {
             border: 1px solid black;
             text-align: center;
             font-size: 24px;
         }
+
+        .carousel {
+            position: relative;
+        }
+
+        .carousel__item {
+            height: 300px;
+            background-color: grey;
+            padding: 1em;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: bold;
+            color: #ffffff
+        }
+
+        .carousel__item--selected {
+            display: block;
+        }
+
+        .carousel___nav {
+            width: 100%;
+            padding: 20px 0;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            text-align: center;
+        }
+
+        .carousel__button {
+            width: 10px;
+            height: 10px;
+            display: inline-block;
+            background-color: rbga(255, 255, 255, 0.2);
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        .carousel__button--selected {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .carousel-wrapper {
+            height: 600px;
+            position: relative;
+            width: 800px;
+            display: block;
+            margin: 50px auto ;
+            border: 2px solid black;
+        }
+
+        .carousel-item {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 25px 50px;
+            opacity: 0;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .arrow{
+            border: solid black;
+            border-width: 0 3px 3px 0;
+            display: inline-block;
+            padding: 12px;
+        }
+
+        .arrow-prev {
+            left: 30px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%) rotate(135deg);
+        }
+
+        .arrow-next {
+            right: 30px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%) rotate(-45deg);
+        }
+
+        [id^= "item"] {
+            display: none;
+        }
+
+        .item-1 {
+            z-index: 2;
+            opacity: 1;
+            background: url('https://3toh891af6rf1cn1po1ecevj-wpengine.netdna-ssl.com/wp-content/uploads/2015/06/iStock-916152336-downtown-b-1024x531.jpg');
+            background-size: cover;
+        }
+
+        .item-2 {
+            background: url('https://grouptourmagazine.com/wp-content/uploads/2019/02/MDCVB-2015_094.jpg');
+            background-size: cover;
+        }
+
+        .item-3 {
+            background: url('https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/sunset-over-downtown-manhattan-with-the-freedom-tower-nyc-habib-ayat.jpg');
+            background-size: cover;
+        }
+
+        .item-4 {
+            background: url('https://img1.10bestmedia.com/Images/Photos/379460/GettyImages-535415025_54_990x660.jpg');
+            background-size: cover;
+        }
+
+        *:target ~ .item-1{
+            opacity: 0;
+        }
+
+        #item-1:target ~ .item-1 {
+            opacity: 1;
+
+        }
+
+        #item-2:target ~ .item-2, #item-3:target ~ .item-3, #item-4:target ~ .item-4 {
+            z-index: 3;
+            opacity: 1;
+        } 
+
     </style>
 </body>
 </html>
