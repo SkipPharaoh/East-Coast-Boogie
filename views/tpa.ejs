@@ -10,10 +10,13 @@
     <h1>Tampa Home Page</h1>
     <nav>
         <%- include('./partials/nav.ejs')%>
-    </nav>
+    </nav> 
+    <h1 class="description">TAMPA</h1>
+
     <h1 class="description">The Tampa Bay Region is most known for it's beautiful Gulf Coast beaches, world class theme parks, a superbowl championship team, a stanley cup championship team and a world series competetor team. During the summer months you'll experience hot humid weather with daily afternoon thunderstorms! Feeling chilly this winter? Migrate south!</h1>
 
     <div class="container">
+       
 
         <div class="categories"> 
             <p class="titles">Restaurants</p>
@@ -84,18 +87,20 @@
         flex-direction: row;
         justify-content: space-evenly;
         font-size: 32px;
-        color: lightcoral;
+        color: #006994;
         margin-top: 50px;
+        font-size: 25px
     }
 
     .description {
-        border: 1px solid black;
+        border: 3px solid black;
         text-align: center;
         margin-top: 50px;
+        font-size: 20px;
     }
 
     .categories {
-        border: 1px solid black;
+        border: 3px solid black;
     }
 
     .titles {
@@ -103,7 +108,8 @@
     }
 
     .container2 {
-        border: 1px solid black;
+        border: 3px;
+        color: #006994;
         height: 100px;
     }
 

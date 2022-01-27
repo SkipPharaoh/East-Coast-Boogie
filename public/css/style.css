@@ -31,10 +31,13 @@ a:hover, a:active { text-decoration: none; color:black }
     font-size: 60px;
     border: 1px solid black;
 }
-
 .detroit {
     font-family: 'Bebas Neue', cursive;
     color: orangered;
+}
+.tpa {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #006994;
 }
 
 .nyc {
@@ -63,7 +66,6 @@ body {
     color: orangered;
     margin-top: 50px;
 }
-
 .description {
     border: 1px solid black;
     text-align: center;
@@ -91,4 +93,3 @@ body {
     justify-content: space-evenly;
 }
 }
-

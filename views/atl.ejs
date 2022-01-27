@@ -12,5 +12,42 @@
         <%- include('./partials/nav.ejs')%>
     </nav>
 
+    <div class="container">
+       
+
+        <div class="categories"> 
+            <p class="titles">Restaurants</p>
+            <br>
+            <% for(let i = 0; i < restaurants.length; i++) { %>
+                <p>Name : <%= restaurants[i].name%></p>
+                <p>Location : <%= restaurants[i].location%></p>
+                <p>Hours : <%= restaurants[i].hours%></p>
+                <br>
+            <% } %>
+        </div>
+        <div class="categories"> 
+            <p class="titles">Landmarks</p>
+            <br>
+            <% for(let i = 0; i < landmarks.length; i++) { %>
+                <p>Name : <%= landmarks[i].name%></p>
+                <p>Location : <%= landmarks[i].location%></p>
+                <p>Hours : <%= landmarks[i].hours%></p>
+                <br>
+            <% } %>
+        </div>
+        
+        <div class="categories"> 
+            <p class="titles">Events</p>
+            <br>
+        <% for(let i = 0; i < events.length; i++) { %>
+            <p>Name : <%= events[i].name%></p>
+            <p>Location : <%= events[i].location%></p>
+            <p>Hours : <%= events[i].hours%></p>
+            <br>
+        <% } %>
+        </div>
+
+    </div>
+
 </body>
 </html>
