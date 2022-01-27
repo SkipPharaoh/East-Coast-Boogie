@@ -81,6 +81,7 @@ app.get('/tampa', (req,res)=>{
                     res.send(err)
                 } else {
                     // console.log(foundCity)
+                  
                     const cityInfo = sortCategories(foundCity)
                     // console.log(cityInfo)
                     res.render('tpa.ejs',{

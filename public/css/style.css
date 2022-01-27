@@ -36,6 +36,7 @@ a:hover, a:active { text-decoration: none; color:black }
     font-family: 'Bebas Neue', cursive;
     color: orangered;
 }
+
 .nyc {
     font-family: 'Advent Pro', sans-serif;
     color: rgb(70, 97, 250);
@@ -90,3 +91,4 @@ body {
     justify-content: space-evenly;
 }
 }
+
