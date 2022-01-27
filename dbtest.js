@@ -387,89 +387,89 @@ async function createTampa() {
         let yogaOnTheLawn = await Category.create(tpaEvent3)
 
 
-//         tampa.categories.push(
-//             // Landmarks
-//             buschGardens, tampaMuseumOfArt, floridaAquarium,
-//             // Restaurants
-//             berns, ciros, columbiaRestaurant,
-//             //Events
-//             gasparilla, liveAndLocal, yogaOnTheLawn
-//             )
-//         tampa.save()
-//     } catch(err) {
-//         console.log(err)
-//     }
-// }
+        tampa.categories.push(
+            // Landmarks
+            buschGardens, tampaMuseumOfArt, floridaAquarium,
+            // Restaurants
+            berns, ciros, columbiaRestaurant,
+            //Events
+            gasparilla, liveAndLocal, yogaOnTheLawn
+            )
+        tampa.save()
+    } catch(err) {
+        console.log(err)
+    }
+}
 
-// const tpaLandmark1 = {
-//     name: "Busch Gardens",
-//     location: "Temple Terrace",
-//     hours: "10am to 8pm",
-//     payForEntrance: true,
-//     category: 'landmarks',
-// }
+const tpaLandmark1 = {
+    name: "Busch Gardens",
+    location: "Temple Terrace",
+    hours: "10am to 8pm",
+    payForEntrance: true,
+    category: 'landmarks',
+}
 
-// const tpaLandmark2 = {
-//     name: "Tampa Museum of Art",
-//     location: "Downtown",
-//     hours: "10am-5pm",
-//     payForEntrance: true,
-//     category: 'landmarks',
-// }
+const tpaLandmark2 = {
+    name: "Tampa Museum of Art",
+    location: "Downtown",
+    hours: "10am-5pm",
+    payForEntrance: true,
+    category: 'landmarks',
+}
 
-// const tpaLandmark3 = {
-//     name: "Florida Aquarium",
-//     location: "Channelside",
-//     hours: "9:30am to 5:30pm",
-//     payForEntrance: true,
-//     category: 'landmarks',
-// }
+const tpaLandmark3 = {
+    name: "Florida Aquarium",
+    location: "Channelside",
+    hours: "9:30am to 5:30pm",
+    payForEntrance: true,
+    category: 'landmarks',
+}
 
 
-// const tpaRestaurant1 = {
-//     name: "Bern's Steak House",
-//     location: "Hyde Park",
-//     hours: "5pm-10pm",
-//     payForEntrance: false,
-//     category: 'placesToEat',
-// }
+const tpaRestaurant1 = {
+    name: "Bern's Steak House",
+    location: "Hyde Park",
+    hours: "5pm-10pm",
+    payForEntrance: false,
+    category: 'placesToEat',
+}
 
-// const tpaRestaurant2 = {
-//     name: "Ciro's Tampa",
-//     location: "Hyde Park",
-//     hours: "5pm-3am",
-//     payForEntrance: false,
-//     category: 'placesToEat',
-// }
+const tpaRestaurant2 = {
+    name: "Ciro's Tampa",
+    location: "Hyde Park",
+    hours: "5pm-3am",
+    payForEntrance: false,
+    category: 'placesToEat',
+}
 
-// const tpaRestaurant3 = {
-//     name: "Columbia Restaurant",
-//     location: "Ybor",
-//     hours: "11am-9pm",
-//     payForEntrance: false,
-//     category: 'placesToEat',
-// }
+const tpaRestaurant3 = {
+    name: "Columbia Restaurant",
+    location: "Ybor",
+    hours: "11am-9pm",
+    payForEntrance: false,
+    category: 'placesToEat',
+}
 
-// const tpaEvent1 = {
-//     name: "Gasparilla",
-//     location: "Tampa",
-//     hours: "the last weekend in January",
-//     payForEntrance: false,
-//     category: 'events',
-// }
+const tpaEvent1 = {
+    name: "Gasparilla",
+    location: "Tampa",
+    hours: "the last weekend in January",
+    payForEntrance: false,
+    category: 'events',
+}
 
-// const tpaEvent2 = {
-//     name: "Live & Local",
-//     location: "Riverwalk Stage",
-//     hours: "First weekend of every month",
-//     payForEntrance: false,
-//     category: 'events',
-// }
+const tpaEvent2 = {
+    name: "Live & Local",
+    location: "Riverwalk Stage",
+    hours: "First weekend of every month",
+    payForEntrance: false,
+    category: 'events',
+}
 
-// const tpaEvent3 = {
-//     name: "Yoga on the Lawn",
-//     location: "Armature Works",
-//     hours: "9:30am-10:30am the 2nd & 4th sunday of the month",
-//     payForEntrance: false,
-//     category: "events"
-// }
+const tpaEvent3 = {
+    name: "Yoga on the Lawn",
+    location: "Armature Works",
+    hours: "9:30am-10:30am the 2nd & 4th sunday of the month",
+    payForEntrance: false,
+    category: "events"
+}
