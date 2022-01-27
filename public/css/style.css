@@ -36,3 +36,57 @@ a:hover, a:active { text-decoration: none; color:black }
     font-family: 'Bebas Neue', cursive;
     color: orangered;
 }
+.nyc {
+    font-family: 'Advent Pro', sans-serif;
+    color: rgb(70, 97, 250);
+}
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: 'Bebas Neue', cursive;
+}
+
+body {
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-size: 32px;
+    text-transform: uppercase;
+    color: orangered;
+    margin-top: 50px;
+}
+
+.description {
+    border: 1px solid black;
+    text-align: center;
+    margin-top: 50px;
+    text-transform: uppercase;
+}
+
+.categories {
+    border: 1px solid black;
+}
+
+.titles {
+    text-align: center;
+}
+
+.container2 {
+    border: 1px solid black;
+    height: 100px;
+}
+
+@media only screen and (max-width: 800px) {
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+}
