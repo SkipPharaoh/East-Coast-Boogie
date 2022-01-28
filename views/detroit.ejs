@@ -62,9 +62,18 @@
     <br>
 
     <div class="container2">
-        <a href="/comments/new">Comment about Detroit</a>
-        <% for (let i=0; i<comments.length;i++){ %>
-            <P><%= comments[i].name %></P>
+        <a href="/comments/new">Leave a comment!</a>
+        <br>
+        <br>
+        <% for (let i=0; i<comments.length;i++) { %>
+            <a href="/comments/<%=comments[i]._id%>/edit">
+            Name - <%=comments[i].name%> </a>
+            <br>
+            Comment - <%=comments[i].comment%>
+            <br>
+            Been here before? - <%=comments[i].beenHereBefore%>
+            <br>
+            <br>
         <% } %>
     </div>
 
@@ -109,7 +118,12 @@
 
     .container2 {
         border: 1px solid black;
-        height: 100px;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .comment {
+        border: 1px solid black;
     }
 
     @media only screen and (max-width: 800px) {
