@@ -22,6 +22,20 @@
                 Comment: <br/>
             <textarea rows="6" cols="60"id="comment" value="<%=comment.comment%> "name="comment"></textarea>
         </legend>
+        <h2>Select A City</h2>
+        <div class="select">
+            <select name="city" id="select">
+                <% if(comment.city === 'Atlanta') { %>
+                    <option value="Atlanta">Atlanta</option>
+                <% } else if(comment.city === 'Detroit') { %>
+                    <option value="Detroit">Detroit</option>
+                <% } else if(comment.city === 'New York') { %>
+                    <option value="New York">New York</option>
+                <% } else { %>
+                    <option value="Tampa">Tampa</option>
+                <% } %>
+            </select>
+        </div>
         <h2>Have you been here before: <input type="checkbox" name="beenHereBefore" 
             <% if(comment.beenHereBefore === true) { %>
                 checked

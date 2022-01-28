@@ -25,20 +25,21 @@ app.use(express.urlencoded({extended:false}))
 app.use(methodOverride('_method'))
 
 // Sort Categories Function //
-// function sortCategories(){
-//     let placesToEat = []
-//     let placesToSee = []
-//     let thingsToDo = []
-//     for(let i = 0; i < foundCity.categories.length; i++) {
-//         if(foundCity.categories[i].category === 'landmarks') {
-//             placesToSee.push(foundCity.categories[i])
-//         } else if (foundCity.categories[i].category === 'placesToEat') {
-//             placesToEat.push(foundCity.categories[i])
-//         } else {
-//             thingsToDo.push(foundCity.categories[i])
-//         }
-//     }
-// }
+function sortCategories(data){
+    let placesToEat = []
+    let placesToSee = []
+    let thingsToDo = []
+    for(let i = 0; i < data.categories.length; i++) {
+        if(data.categories[i].category === 'landmarks') {
+            placesToSee.push(data.categories[i])
+        } else if (data.categories[i].category === 'placesToEat') {
+            placesToEat.push(data.categories[i])
+        } else {
+            thingsToDo.push(data.categories[i])
+        }
+    }
+    return {placesToSee, placesToEat, thingsToDo}
+}
 
     // RESTful Routes //
 app.get('/cities', (req,res)=>{
@@ -51,29 +52,18 @@ app.get('/atl', (req,res)=>{
     City.findOne({name: 'Atlanta'}).populate('categories').exec(
         (err, foundCity) => {
             Comment.find({city: foundCity.name}).then((comments)=>{
-                console.log('ALL COMMENTS: ', comments)
+                // console.log('ALL COMMENTS: ', comments)
                 if (err) {
                     console.log(err)
                     res.send(err)
                 } else {
-                    // console.log(foundCity)
-                    let placesToEat = []
-                    let placesToSee = []
-                    let thingsToDo = []
-                    for(let i = 0; i < foundCity.categories.length; i++) {
-                        if(foundCity.categories[i].category === 'landmarks') {
-                            placesToSee.push(foundCity.categories[i])
-                        } else if (foundCity.categories[i].category === 'placesToEat') {
-                            placesToEat.push(foundCity.categories[i])
-                        } else {
-                            thingsToDo.push(foundCity.categories[i])
-                        }
-                    }
+                    const cityInfo = sortCategories(foundCity)
+                    console.log(cityInfo)
                     res.render('atl.ejs',{
                         city: foundCity,
-                        restaurants: placesToEat,
-                        landmarks: placesToSee,
-                        events: thingsToDo,
+                        restaurants: cityInfo.placesToEat,
+                        landmarks: cityInfo.placesToSee,
+                        events: cityInfo.thingsToDo,
                         comments: comments
                     })
                 }
@@ -91,23 +81,14 @@ app.get('/tampa', (req,res)=>{
                     res.send(err)
                 } else {
                     // console.log(foundCity)
-                    let placesToEat = []
-                    let placesToSee = []
-                    let thingsToDo = []
-                    for(let i = 0; i < foundCity.categories.length; i++) {
-                        if(foundCity.categories[i].category === 'landmarks') {
-                            placesToSee.push(foundCity.categories[i])
-                        } else if (foundCity.categories[i].category === 'placesToEat') {
-                            placesToEat.push(foundCity.categories[i])
-                        } else {
-                            thingsToDo.push(foundCity.categories[i])
-                        }
-                    }
+                  
+                    const cityInfo = sortCategories(foundCity)
+                    // console.log(cityInfo)
                     res.render('tpa.ejs',{
                         city: foundCity,
-                        restaurants: placesToEat,
-                        landmarks: placesToSee,
-                        events: thingsToDo,
+                        restaurants: cityInfo.placesToEat,
+                        landmarks: cityInfo.placesToSee,
+                        events: cityInfo.thingsToDo,
                         comments: comments
                     })
                 }
@@ -120,38 +101,37 @@ app.get('/nyc', (req,res)=>{
     City.findOne({name: 'New York'}).populate('categories').exec(
         (err, foundCity) => {
             Comment.find({city: foundCity.name}).then((comments)=>{
-                console.log('ALL COMMENTS: ', comments)
+                // console.log('ALL COMMENTS: ', comments)
                 if (err) {
                     console.log(err)
                     res.send(err)
                 } else {
                     // console.log(foundCity)
-                    let placesToEat = []
-                    let placesToSee = []
-                    let thingsToDo = []
-                    for(let i = 0; i < foundCity.categories.length; i++) {
-                        if(foundCity.categories[i].category === 'landmarks') {
-                            placesToSee.push(foundCity.categories[i])
-                        } else if (foundCity.categories[i].category === 'placesToEat') {
-                            placesToEat.push(foundCity.categories[i])
-                        } else {
-                            thingsToDo.push(foundCity.categories[i])
-                        }
-                    }
+                    const cityInfo = sortCategories(foundCity)
+                    // console.log(cityInfo)
                     // console.log(placesToEat)
                     // console.log(placesToSee)
                     // console.log(thingsToDo)
                     res.render('nyc.ejs',{
                         city: foundCity,
-                        restaurants: placesToEat,
-                        landmarks: placesToSee,
-                        events: thingsToDo,
+                        restaurants: cityInfo.placesToEat,
+                        landmarks: cityInfo.placesToSee,
+                        events: cityInfo.thingsToDo,
                         comments: comments
                     })
                 }
             })
         }
     )
+})
+app.get('/nyc/comments', (req,res)=>{
+    // res.send('Main home page')
+    Comment.find({city: 'New York'}, (err, foundComment) => {
+        console.log('My City Comments: ', foundComment)
+        res.render('nycComments.ejs', {
+            comment: foundComment
+        })
+    })
 })
 app.get('/detroit', (req,res)=>{
     // res.send('Main home page')
@@ -164,23 +144,13 @@ app.get('/detroit', (req,res)=>{
                     res.send(err)
                 } else {
                     // console.log(foundCity)
-                    let placesToEat = []
-                    let placesToSee = []
-                    let thingsToDo = []
-                    for(let i = 0; i < foundCity.categories.length; i++) {
-                        if(foundCity.categories[i].category === 'landmarks') {
-                            placesToSee.push(foundCity.categories[i])
-                        } else if (foundCity.categories[i].category === 'placesToEat') {
-                            placesToEat.push(foundCity.categories[i])
-                        } else {
-                            thingsToDo.push(foundCity.categories[i])
-                        }
-                    }
+                    const cityInfo = sortCategories(foundCity)
+                    // console.log(cityInfo)
                     res.render('detroit.ejs',{
                         city: foundCity,
-                        restaurants: placesToEat,
-                        landmarks: placesToSee,
-                        events: thingsToDo,
+                        restaurants: cityInfo.placesToEat,
+                        landmarks: cityInfo.placesToSee,
+                        events: cityInfo.thingsToDo,
                         comments: comments
                     })
                 }
@@ -240,8 +210,18 @@ app.post('/comments', (req,res)=>{
             console.log(err)
             res.send(err)
         }else {
-            console.log(createdComment)
-            res.redirect('/comments')
+            console.log(req.body)
+            if (req.body.city === 'New York') {
+                res.redirect('/nyc')
+            } else if( req.body.city === 'Atlanta') {
+                res.redirect('/atl')
+            } else if (req.body.city === 'Tampa') {
+                res.redirect('/tampa')
+            } else if (req.body.city === 'Detroit') {
+                res.redirect('/detroit')
+            }else {
+                res.redirect('/comments')
+            }
         }
         // res.redirect('/comments')
     })
