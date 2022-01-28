@@ -1,3 +1,4 @@
+/* NAV BAR */
 .navbar {
    border: 1px solid black;
    width: 100%;
@@ -32,7 +33,52 @@ a:hover, a:active { text-decoration: none; color:black }
     border: 1px solid black;
 }
 
+/* FOOTER */
+
+.footer {
+    border: 1px solid black;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    /* position: relative; */
+}
+.footer ul {
+    display: inline-block;
+    text-align: center;
+}
+
+.footer ul li {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.footer ul li a {
+    color: white;
+    text-transform: uppercase;
+}
+
+.foot {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+/* OTHERS */
+
 .detroit {
     font-family: 'Bebas Neue', cursive;
     color: orangered;
+}
+
+.tpa {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #006994;
+}
+
+.nyc {
+    font-family: 'Advent Pro', sans-serif;
+    color: rgb(70, 97, 250);
 }

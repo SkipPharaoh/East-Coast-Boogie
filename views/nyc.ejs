@@ -4,16 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/public/css/style.css">
     <title>NYC</title>
 </head>
 <body>
-    <h1>New York City Home Page</h1>
     <nav>
         <%- include('./partials/nav.ejs')%>
     </nav>
-    <div class="responsive-container">
-        <div class="topic"><u>Restaurants</u>
+    <!-- <script>
+        document.getElementById('css').href="/public/css/nyc.css"
+    </script> -->
+    <h1 class="description" id="nyc">New York City Home Page</h1>
+    <h3 class="description">
+        With a globally recognizable skyline and 8.4 million people who call it home, New York City is bursting with diversity and excitement, from the iconic attractions you've seen on TV and in the movies to hidden gems waiting to be uncovered. Each of the five boroughs: The Bronx, Brooklyn, Manhattan, Queens and Staten Island; has a distinctive flavor, while individual neighborhoods maintain identities all their own. Walkable streets and access to the subway, buses and cabs make it easy to get from neighborhood to neighborhood. Whether it's your first visit or your hundredth, there's always something new to do.
+    </h3>
+    <div class="container">
+        <div class="categories">
+            <p class="titles" >Restaurants</p>
+            <br>
             <% for (let i=0; i<restaurants.length; i++) { %>
                 <p>Name : <%= restaurants[i].name%></p>
                 <p>Location : <%= restaurants[i].location%></p>
@@ -21,7 +28,9 @@
                 <br>
             <% } %>
         </div>
-        <div class="topic"> <u>Landmarks</u>
+        <div class="categories">
+            <p class="titles" >Landmarks</p>
+            <br>
             <% for (let i=0; i<landmarks.length; i++) { %>
                 <p>Name : <%= landmarks[i].name%></p>
                 <p>Location : <%= landmarks[i].location%></p>
@@ -29,7 +38,9 @@
                 <br>
             <% } %>
         </div>
-        <div class="topic"><u>Events</u>
+        <div class="categories">
+            <p class="titles" >Events</p>
+            <br>
             <% for (let i=0; i<events.length; i++) { %>
                 <p>Name : <%= events[i].name%></p>
                 <p>Location : <%= events[i].location%></p>
@@ -37,12 +48,44 @@
                 <br>
             <% } %>
         </div>
-        <div>
-            <a class="nycComment" href="/comments/new">Comment about NYC</a>
-            <% for (let i=0; i<comments.length;i++) { %>
-                <p><%=comments[i].name%></p>
-            <% } %>
-        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container2">
+        <a class="nycComment" href="/comments/new">Comment about NYC</a> <br>
+        <% for (let i=0; i<comments.length;i++) { %>
+            <a href="/comments/<%=comments[i]._id%>/edit"><%=comments[i].name%></a>
+            <p><%=comments[i].comment%> </p>
+        <% } %>
     </div>
 </body>
 </html>
+<style>
+    .titles {
+    font-family: 'Advent Pro', sans-serif;
+    color: rgb(70, 97, 250);
+}
+h1{
+    font-family: 'Advent Pro', sans-serif;
+}
+.container {
+    font-size: 22px;
+    color:rgb(70, 97, 250);
+}
+p{
+    font-family: 'Advent Pro', sans-serif;
+}
+.nycComment{
+    color: mediumspringgreen
+}
+.nycComment:hover{
+    text-shadow: 0px 0px 5px greenyellow;
+    color: red
+}
+</style>

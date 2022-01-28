@@ -10,7 +10,117 @@
     <h1>Tampa Home Page</h1>
     <nav>
         <%- include('./partials/nav.ejs')%>
-    </nav>
+    </nav> 
+    <h1 class="description">TAMPA</h1>
+
+    <h1 class="description">The Tampa Bay Region is most known for it's beautiful Gulf Coast beaches, world class theme parks, a superbowl championship team, a stanley cup championship team and a world series competetor team. During the summer months you'll experience hot humid weather with daily afternoon thunderstorms! Feeling chilly this winter? Migrate south!</h1>
+
+    <div class="container">
        
+
+        <div class="categories"> 
+            <p class="titles">Restaurants</p>
+            <br>
+            <% for(let i = 0; i < restaurants.length; i++) { %>
+                <p>Name : <%= restaurants[i].name%></p>
+                <p>Location : <%= restaurants[i].location%></p>
+                <p>Hours : <%= restaurants[i].hours%></p>
+                <br>
+            <% } %>
+        </div>
+        <div class="categories"> 
+            <p class="titles">Landmarks</p>
+            <br>
+            <% for(let i = 0; i < landmarks.length; i++) { %>
+                <p>Name : <%= landmarks[i].name%></p>
+                <p>Location : <%= landmarks[i].location%></p>
+                <p>Hours : <%= landmarks[i].hours%></p>
+                <br>
+            <% } %>
+        </div>
+        
+        <div class="categories"> 
+            <p class="titles">Events</p>
+            <br>
+        <% for(let i = 0; i < events.length; i++) { %>
+            <p>Name : <%= events[i].name%></p>
+            <p>Location : <%= events[i].location%></p>
+            <p>Hours : <%= events[i].hours%></p>
+            <br>
+        <% } %>
+        </div>
+
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="container2">
+        <a href="/comments/new">Comment about Tampa</a>
+        <% for (let i=0; i<comments.length;i++){ %>
+            <P><%= comments[i].name %></P>
+        <% } %>
+    </div>
+
+    <style>
+    * {
+        padding: 0;
+        margin: 0;
+        text-decoration: none;
+        list-style: none;
+        box-sizing: border-box;
+        font-family: georgia, serif; 
+    }
+
+    body {
+        height: 100vh;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        font-size: 32px;
+        color: #006994;
+        margin-top: 50px;
+        font-size: 25px
+    }
+
+    .description {
+        border: 3px solid black;
+        text-align: center;
+        margin-top: 50px;
+        font-size: 20px;
+    }
+
+    .categories {
+        border: 3px solid black;
+    }
+
+    .titles {
+        text-align: center;
+    }
+
+    .container2 {
+        border: 3px;
+        color: #006994;
+        height: 100px;
+    }
+
+    @media only screen and (max-width: 800px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+}
+    </style>
+
 </body>
 </html>
