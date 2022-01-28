@@ -33,6 +33,17 @@ a:hover, a:active { text-decoration: none; color:black }
     border: 1px solid black;
 }
 
+
+/* OTHERS */
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: 'Bebas Neue', cursive;
+}
+
 .detroit {
     font-family: 'Bebas Neue', cursive;
     color: orangered;
@@ -45,17 +56,8 @@ a:hover, a:active { text-decoration: none; color:black }
     font-family: 'Advent Pro', sans-serif;
     color: rgb(70, 97, 250);
 }
-*{
-    padding: 0;
-    margin: 0;
-    text-decoration: none;
-    list-style: none;
-    box-sizing: border-box;
-    font-family: 'Bebas Neue', cursive;
-}
 
 /* FOOTER */
-
 .footer {
     border: 1px solid black;
     left: 0;
@@ -67,6 +69,7 @@ a:hover, a:active { text-decoration: none; color:black }
 .footer ul {
     display: inline-block;
     text-align: center;
+    margin: 10px;
 }
 
 .footer ul li {
