@@ -161,6 +161,7 @@ app.get('/detroit', (req,res)=>{
 
 // Comments Routes
 // index
+
 app.get('/comments', (req,res)=>{
     Comment.find({}, (err, foundComment) => {
         res.render('comments.ejs', {
