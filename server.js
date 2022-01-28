@@ -124,6 +124,15 @@ app.get('/nyc', (req,res)=>{
         }
     )
 })
+app.get('/nyc/comments', (req,res)=>{
+    // res.send('Main home page')
+    Comment.find({city: 'New York'}, (err, foundComment) => {
+        console.log('My City Comments: ', foundComment)
+        res.render('nycComments.ejs', {
+            comment: foundComment
+        })
+    })
+})
 app.get('/detroit', (req,res)=>{
     // res.send('Main home page')
     City.findOne({name: 'Detroit'}).populate('categories').exec(
@@ -202,8 +211,18 @@ app.post('/comments', (req,res)=>{
             console.log(err)
             res.send(err)
         }else {
-            console.log(createdComment)
-            res.redirect('/comments')
+            console.log(req.body)
+            if (req.body.city === 'New York') {
+                res.redirect('/nyc')
+            } else if( req.body.city === 'Atlanta') {
+                res.redirect('/atl')
+            } else if (req.body.city === 'Tampa') {
+                res.redirect('/tampa')
+            } else if (req.body.city === 'Detroit') {
+                res.redirect('/detroit')
+            }else {
+                res.redirect('/comments')
+            }
         }
         // res.redirect('/comments')
     })
