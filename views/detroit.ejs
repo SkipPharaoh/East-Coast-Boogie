@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <title>Detroit</title>
 </head>
 <body>
@@ -12,45 +15,59 @@
         <%- include('./partials/nav.ejs')%>
     </nav>
 
-    <h1 class="description">DETROIT</h1>
+    <!-- <h1 class="description">DETROIT</h1> -->
 
-    <h1 class="description">Detroit is the largest city in Michigan and rests in Wayne County. It is a major port city on the Detroit River and is known as the world's traditional auto center. The auto industry and famous music scene has earned it the nicknames The Motor City and Motown.</h1>
+    <!-- <h1 class="description">Detroit is the largest city in Michigan and rests in Wayne County. It is a major port city on the Detroit River and is known as the world's traditional auto center. The auto industry and famous music scene has earned it the nicknames The Motor City and Motown.</h1> -->
 
     <div class="container">
 
-        <div class="categories"> 
+        <div class="card" style="width: 18rem;">
             <p class="titles">Restaurants</p>
-            <br>
-            <% for(let i = 0; i < restaurants.length; i++) { %>
-                <p>Name : <%= restaurants[i].name%></p>
-                <p>Location : <%= restaurants[i].location%></p>
-                <p>Hours : <%= restaurants[i].hours%></p>
-                <br>
-            <% } %>
-        </div>
-        <div class="categories"> 
+            <img class="card-img-top" src="https://infatuation.s3.amazonaws.com/media/images/guides/where-to-eat-and-drink-in-detroit/MichelleAndChrisGerard-Maru-107.jpg" alt="Card image cap">
+            <div class="card-body">
+                <% for (let i = 0; i < restaurants.length; i++) { %>
+                    <p class="card-title"><%=restaurants[i].name%></p>
+                    <h4 class="card-text"><%=restaurants[i].location%></h4>
+                    <h5 class="card-text"><%=restaurants[i].hours%></h5>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+    
+                <% } %>
+            </div>
+          </div>
+
+          <div class="card" style="width: 18rem;">
             <p class="titles">Landmarks</p>
-            <br>
-            <% for(let i = 0; i < landmarks.length; i++) { %>
-                <p>Name : <%= landmarks[i].name%></p>
-                <p>Location : <%= landmarks[i].location%></p>
-                <p>Hours : <%= landmarks[i].hours%></p>
-                <br>
-            <% } %>
-        </div>
-        
-        <div class="categories"> 
+            <img class="card-img-top" src="">
+            <div class="card-body">
+                
+                <% for (let i = 0; i < landmarks.length; i++) { %>
+                    <p class="card-title"><%=landmarks[i].name%></p>
+                    <h4 class="card-text"><%=landmarks[i].location%></h4>
+                    <h5 class="card-text"><%=landmarks[i].hours%></h5>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+    
+                <% } %>
+            </div>
+          </div>
+
+          <div class="card" style="width: 18rem;">
             <p class="titles">Events</p>
-            <br>
-        <% for(let i = 0; i < events.length; i++) { %>
-            <p>Name : <%= events[i].name%></p>
-            <p>Location : <%= events[i].location%></p>
-            <p>Hours : <%= events[i].hours%></p>
-            <br>
-        <% } %>
-        </div>
+            <img class="card-img-top" src="">
+            <div class="card-body">
+                
+                <% for (let i = 0; i < events.length; i++) { %>
+                    <p class="card-title"><%=events[i].name%></p>
+                    <h4 class="card-text"><%=events[i].location%></h4>
+                    <h5 class="card-text"><%=events[i].hours%></h5>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+    
+                <% } %>
+            </div>
+          </div>
 
     </div>
+
+    
 
     <br>
     <br>
@@ -62,11 +79,26 @@
     <br>
 
     <div class="container2">
-        <a href="/comments/new">Comment about Detroit</a>
-        <% for (let i=0; i<comments.length;i++){ %>
-            <P><%= comments[i].name %></P>
+        <a href="/comments/new">Leave a comment!</a>
+        <br>
+        <br>
+        <% for (let i=0; i<comments.length;i++) { %>
+            <a href="/comments/<%=comments[i]._id%>/edit">
+            Name - <%=comments[i].name%> </a>
+            <br>
+            Comment - <%=comments[i].comment%>
+            <br>
+            <br>
+            <br>
         <% } %>
     </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <%- include('./partials/footer.ejs')%>
 
     <style>
     * {
@@ -82,34 +114,41 @@
         height: 100vh;
     }
 
-    .container {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        font-size: 32px;
-        text-transform: uppercase;
-        color: orangered;
-        margin-top: 50px;
-    }
-
-    .description {
-        border: 1px solid black;
-        text-align: center;
-        margin-top: 50px;
-        text-transform: uppercase;
-    }
-
-    .categories {
-        border: 1px solid black;
-    }
-
     .titles {
         text-align: center;
     }
 
     .container2 {
         border: 1px solid black;
-        height: 100px;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .comment {
+        border: 1px solid black;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 30px;
+    }
+    .card {
+        border: 1px solid black;
+    }
+    .card-img-top {
+        height: 150px;
+        width: 150px;
+        text-align: center;
+        margin: 0 auto;
+        display: block;
+    }
+    .card-body {
+        text-align: center;
+    }
+    .card-title {
+        font-size: 24px;
     }
 
     @media only screen and (max-width: 800px) {
@@ -119,7 +158,11 @@
         justify-content: space-evenly;
     }
 }
+
     </style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </body>
 </html>

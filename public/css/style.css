@@ -1,3 +1,4 @@
+/* NAV BAR */
 .navbar {
    border: 1px solid black;
    width: 100%;
@@ -31,6 +32,7 @@ a:hover, a:active { text-decoration: none; color:black }
     font-size: 60px;
     border: 1px solid black;
 }
+
 .detroit {
     font-family: 'Bebas Neue', cursive;
     color: orangered;
@@ -52,43 +54,35 @@ a:hover, a:active { text-decoration: none; color:black }
     font-family: 'Bebas Neue', cursive;
 }
 
-body {
-    height: 100vh;
-}
+/* FOOTER */
 
-.container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    font-size: 32px;
-    text-transform: uppercase;
-    color: orangered;
-    margin-top: 50px;
-}
-.description {
+.footer {
     border: 1px solid black;
+    left: 0;
+    bottom: 0;
+    width: 100%;
     text-align: center;
-    margin-top: 50px;
-    text-transform: uppercase;
+    /* position: relative; */
 }
-
-.categories {
-    border: 1px solid black;
-}
-
-.titles {
+.footer ul {
+    display: inline-block;
     text-align: center;
 }
 
-.container2 {
-    border: 1px solid black;
-    height: 100px;
-}
-
-@media only screen and (max-width: 800px) {
-.container {
+.footer ul li {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    text-align: center;
 }
+
+.footer ul li a {
+    color: white;
+    text-transform: uppercase;
+}
+
+.foot {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 20px;
 }
