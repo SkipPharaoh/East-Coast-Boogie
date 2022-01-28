@@ -124,6 +124,15 @@ app.get('/nyc', (req,res)=>{
         }
     )
 })
+app.get('/nyc/comments', (req,res)=>{
+    // res.send('Main home page')
+    Comment.find({city: 'New York'}, (err, foundComment) => {
+        console.log('My City Comments: ', foundComment)
+        res.render('nycComments.ejs', {
+            comment: foundComment
+        })
+    })
+})
 app.get('/detroit', (req,res)=>{
     // res.send('Main home page')
     City.findOne({name: 'Detroit'}).populate('categories').exec(
