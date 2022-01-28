@@ -16,6 +16,20 @@
     <title>New Comment</title>
 </head>
 <body>
+    <h1>Enter New Comment Here</h1>
+    <form id="commentForm" action="/comments" method="POST">
+        <legend>
+            <label for="Name">
+                Name: <br/>
+                <input id="name" type="text" name="name" required placeholder="enter your name here">
+            </label>
+            <br/><br/>
+        </legend>
+        <legend>
+            <label for="comment">
+                Comment: <br/>
+            <textarea rows="6" cols="60"id="comment" name="comment"></textarea>
+        </legend>
 
     <%- include('./partials/nav.ejs')%>
     
@@ -35,20 +49,15 @@
                 <input type="checkbox" name="beenHereBefore"> -->
             </fieldset>
 
-            <fieldset>
-                <legend>CITY</legend>
-                <label for="cityChoice"></label>
-                <select name="city" id="select">
-                    <option value="Atlanta">Atlanta</option>
-                    <option value="Detroit">Detroit</option>
-                    <option value="New York">New York</option>
-                    <option value="Tampa">Tampa</option>
-                </select>
-            </fieldset>
-            <input type="submit" value="Create comment">
-        </form>
-    </div>
-    </div>
+        <h2>Select A City</h2>
+        <div class="select">
+            <select name="city" id="select">
+                <option value="Atlanta">Atlanta</option>
+                <option value="Detroit">Detroit</option>
+                <option value="New York">New York</option>
+                <option value="Tampa">Tampa</option>
+            </select>
+        </div>
 
     <%- include('./partials/footer.ejs')%>
 
