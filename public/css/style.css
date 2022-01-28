@@ -69,6 +69,7 @@ a:hover, a:active { text-decoration: none; color:black }
 .footer ul {
     display: inline-block;
     text-align: center;
+    margin: 10px;
 }
 
 .footer ul li {

@@ -162,13 +162,13 @@ app.get('/detroit', (req,res)=>{
 // Comments Routes
 // index
 
-app.get('/comments', (req,res)=>{
-    Comment.find({}, (err, foundComment) => {
-        res.render('comments.ejs', {
-            comment: foundComment
-        })
-    })
-})
+// app.get('/comments', (req,res)=>{
+//     Comment.find({}, (err, foundComment) => {
+//         res.render('comments.ejs', {
+//             comment: foundComment
+//         })
+//     })
+// })
 
 // new
 app.get('/comments/new', (req,res)=>{
@@ -240,13 +240,14 @@ app.put('/comments/:id', (req,res)=>{
     })
 })
 
+// delete
 app.delete('/comments/:id', (req, res)=> {
     const deleteComment = (err, deleteMsg) => {
         if(err) {
             return res.send(err)
         }
         console.log(deleteMsg)
-        res.redirect('/comments')
+        res.redirect('/cities')
     }
     Comment.deleteOne({_id : req.params.id},deleteComment)
 })

@@ -15,68 +15,65 @@
         <%- include('./partials/nav.ejs')%>
     </nav>
 
-    <!-- <h1 class="description">DETROIT</h1> -->
+    <h1 class="city">DETROIT</h1>
 
-    <!-- <h1 class="description">Detroit is the largest city in Michigan and rests in Wayne County. It is a major port city on the Detroit River and is known as the world's traditional auto center. The auto industry and famous music scene has earned it the nicknames The Motor City and Motown.</h1> -->
+    <h1 class="city-description">Detroit is the largest city in Michigan and rests in Wayne County. It is a major port city on the Detroit River and is known as the world's traditional auto center. The auto industry and famous music scene has earned it the nicknames The Motor City and Motown.</h1>
 
     <div class="container">
 
-        <div class="card" style="width: 18rem;">
+        <div class="card" style="width: 28rem;">
             <p class="titles">Restaurants</p>
-            <img class="card-img-top" src="https://infatuation.s3.amazonaws.com/media/images/guides/where-to-eat-and-drink-in-detroit/MichelleAndChrisGerard-Maru-107.jpg" alt="Card image cap">
             <div class="card-body">
+                <img class="card-img-top" src="" alt="Card image cap">
                 <% for (let i = 0; i < restaurants.length; i++) { %>
-                    <p class="card-title"><%=restaurants[i].name%></p>
+                    
+                    <div class="card-title">
+                        <%=restaurants[i].name%>
                     <h4 class="card-text"><%=restaurants[i].location%></h4>
                     <h5 class="card-text"><%=restaurants[i].hours%></h5>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-    
+                    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                </div>
+                
                 <% } %>
             </div>
           </div>
 
-          <div class="card" style="width: 18rem;">
+          <div class="card" style="width: 28rem;">
             <p class="titles">Landmarks</p>
-            <img class="card-img-top" src="">
             <div class="card-body">
-                
+                <img class="card-img-top" src="" alt="Card image cap">
                 <% for (let i = 0; i < landmarks.length; i++) { %>
-                    <p class="card-title"><%=landmarks[i].name%></p>
+                    
+                    <div class="card-title">
+                        <%=landmarks[i].name%>
                     <h4 class="card-text"><%=landmarks[i].location%></h4>
                     <h5 class="card-text"><%=landmarks[i].hours%></h5>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-    
+                    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                </div>
+                
                 <% } %>
             </div>
           </div>
 
-          <div class="card" style="width: 18rem;">
+          <div class="card" style="width: 28rem;">
             <p class="titles">Events</p>
-            <img class="card-img-top" src="">
             <div class="card-body">
-                
+                <img class="card-img-top" src="" alt="Card image cap">
                 <% for (let i = 0; i < events.length; i++) { %>
-                    <p class="card-title"><%=events[i].name%></p>
+                    
+                    <div class="card-title">
+                        <%=events[i].name%>
                     <h4 class="card-text"><%=events[i].location%></h4>
                     <h5 class="card-text"><%=events[i].hours%></h5>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-    
+                    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                </div>
+                
                 <% } %>
             </div>
           </div>
 
     </div>
 
-    
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
 
     <div class="container2">
         <a href="/comments/new">Leave a comment!</a>
@@ -84,19 +81,15 @@
         <br>
         <% for (let i=0; i<comments.length;i++) { %>
             <a href="/comments/<%=comments[i]._id%>/edit">
-            Name - <%=comments[i].name%> </a>
+            <%=comments[i].name%> </a>
             <br>
-            Comment - <%=comments[i].comment%>
+            <%=comments[i].comment%>
             <br>
             <br>
             <br>
         <% } %>
     </div>
 
-    <br>
-    <br>
-    <br>
-    <br>
 
     <%- include('./partials/footer.ejs')%>
 
@@ -108,6 +101,7 @@
         list-style: none;
         box-sizing: border-box;
         font-family: 'Bebas Neue', cursive;
+        text-align: center;
     }
 
     body {
@@ -121,18 +115,15 @@
     .container2 {
         border: 1px solid black;
         text-align: center;
-        margin: 0 auto;
-    }
-
-    .comment {
-        border: 1px solid black;
+        margin: 100px 0;
     }
 
     .container {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-evenly;
         font-size: 30px;
+        margin-top: 50px;
     }
     .card {
         border: 1px solid black;
@@ -146,16 +137,40 @@
     }
     .card-body {
         text-align: center;
+        margin: 10px;
     }
     .card-title {
         font-size: 24px;
+        border: 1px solid black;
+        margin: 10px;
     }
 
-    @media only screen and (max-width: 800px) {
+    .city {
+        text-align: center;
+        border: 1px solid black;
+        font-size: 28px;
+        display: inline-block;
+        width: 80%;
+        font-family: 'Bebas Neue', cursive;
+    }
+
+    .city-description {
+        text-align: center;
+        border: 1px solid black;
+        font-size: 18px;
+        display: inline-block;
+        width: 80%;
+        font-family: 'Bebas Neue', cursive;
+    }
+
+    @media only screen and (max-width: 985px) {
     .container {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
+        display: inline-block;
+        text-align: center;
+    }
+
+    .card {
+        margin: 50px;
     }
 }
 
