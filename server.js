@@ -3,7 +3,7 @@ const express = require('express')
 const app = express()
 const methodOverride = require('method-override')
 const PORT = process.env.PORT || 8000
-const Comment = require('../models/Comments')
+const Comment = require('./models/Comments')
 const atlController = require('./controllers/atl')
 
 
