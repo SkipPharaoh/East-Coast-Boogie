@@ -47,6 +47,9 @@
             </fieldset>
             <input type="submit" value="EDIT COMMENT">
         </form>
+        <form method="POST" action="/comments/<%=comment._id%>?_method=DELETE">
+            <input type="submit" value="DELETE">
+        </form>
     </div>
     </div>
 
