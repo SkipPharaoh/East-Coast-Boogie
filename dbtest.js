@@ -1,9 +1,12 @@
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://127.0.0.1:27017/eastCoastBoogie')
-let db = mongoose.connection
-db.on('connected', ()=> {
-    main()
-})
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/eastCoastBoogie'
+mongoose.connect(MONGODB_URI, ()=>{
+    main(),
+    console.log('Mongoose connected at: ' + MONGODB_URI)})
+// let db = mongoose.connection
+// db.on('connected', ()=> {
+//     main()
+// })
 
 
 const Category = require('./models/Category.js')
