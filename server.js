@@ -47,7 +47,7 @@ app.get('/cities', (req,res)=>{
     res.render('cities.ejs')
 })
 
-app.get('/cities/atl', (req,res)=>{
+app.get('/atl', (req,res)=>{
     // res.send('Main home page')
     City.findOne({name: 'Atlanta'}).populate('categories').exec(
         (err, foundCity) => {
@@ -71,7 +71,7 @@ app.get('/cities/atl', (req,res)=>{
         }
     )
 })
-app.get('/cities/tampa', (req,res)=>{
+app.get('/tampa', (req,res)=>{
     City.findOne({name: 'Tampa'}).populate('categories').exec(
         (err, foundCity) => {
             Comment.find({city: foundCity.name}).then((comments)=>{
@@ -96,7 +96,7 @@ app.get('/cities/tampa', (req,res)=>{
         }
     )
 })
-app.get('/cities/nyc', (req,res)=>{
+app.get('/nyc', (req,res)=>{
     // res.send('Main home page')
     City.findOne({name: 'New York'}).populate('categories').exec(
         (err, foundCity) => {
@@ -124,7 +124,7 @@ app.get('/cities/nyc', (req,res)=>{
         }
     )
 })
-app.get('/cities/nyc/comments', (req,res)=>{
+app.get('/nyc/comments', (req,res)=>{
     // res.send('Main home page')
     Comment.find({city: 'New York'}, (err, foundComment) => {
         console.log('My City Comments: ', foundComment)
@@ -133,7 +133,7 @@ app.get('/cities/nyc/comments', (req,res)=>{
         })
     })
 })
-app.get('/cities/detroit', (req,res)=>{
+app.get('/detroit', (req,res)=>{
     // res.send('Main home page')
     City.findOne({name: 'Detroit'}).populate('categories').exec(
         (err, foundCity) => {
