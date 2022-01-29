@@ -13,7 +13,7 @@ const atlController = require('./controllers/atl')
 const mongoose = require('mongoose')
 const City = require('./models/City.js')
 const Category = require('./models/Category.js')
-const URI = process.env.URI || 'mongodb://127.0.0.1:27017/eastCoastBoogie'
+const URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/eastCoastBoogie'
 mongoose.connect(URI, ()=>{console.log('Mongoose connected at: ' +URI)})
 
 // App Config
