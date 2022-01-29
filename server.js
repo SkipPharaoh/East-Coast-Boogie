@@ -197,7 +197,10 @@ app.get('/comments/:id', (req,res)=>{
     })
 })
 
-
+app.get('/*', (req,res)=>{
+    // res.send('Main Cities page')
+    res.render('cities.ejs')
+})
 
 // create
 app.post('/comments', (req,res)=>{
