@@ -162,13 +162,13 @@ app.get('/detroit', (req,res)=>{
 // Comments Routes
 // index
 
-// app.get('/comments', (req,res)=>{
-//     Comment.find({}, (err, foundComment) => {
-//         res.render('comments.ejs', {
-//             comment: foundComment
-//         })
-//     })
-// })
+app.get('/comments', (req,res)=>{
+    Comment.find({}, (err, foundComment) => {
+        res.render('comments.ejs', {
+            comment: foundComment
+        })
+    })
+})
 
 // new
 app.get('/comments/new', (req,res)=>{
