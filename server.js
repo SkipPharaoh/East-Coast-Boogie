@@ -2,7 +2,7 @@
 const express = require('express')
 const app = express()
 const methodOverride = require('method-override')
-const PORT = 8000
+const PORT = process.env.PORT || 8000
 const Comment = require('./models/Comments.js')
 const atlController = require('./controllers/atl')
 
@@ -13,7 +13,7 @@ const atlController = require('./controllers/atl')
 const mongoose = require('mongoose')
 const City = require('./models/City.js')
 const Category = require('./models/Category.js')
-const URI = 'mongodb://127.0.0.1:27017/eastCoastBoogie'
+const URI = process.env.URI || 'mongodb://127.0.0.1:27017/eastCoastBoogie'
 mongoose.connect(URI, ()=>{console.log('Mongoose connected at: ' +URI)})
 
 // App Config
@@ -236,7 +236,18 @@ app.put('/comments/:id', (req,res)=>{
         req.body.beenHereBefore = false
     }
     Comment.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedComment) => {
-        res.redirect('/comments/' + req.params.id)
+        if (req.body.city === 'New York') {
+            res.redirect('/nyc')
+        } else if( req.body.city === 'Atlanta') {
+            res.redirect('/atl')
+        } else if (req.body.city === 'Tampa') {
+            res.redirect('/tampa')
+        } else if (req.body.city === 'Detroit') {
+            res.redirect('/detroit')
+        }else {
+            res.redirect('/comments')
+        }
+        // res.redirect('/comments/' + req.params.id)
     })
 })
 
