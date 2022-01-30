@@ -15,25 +15,22 @@
         <%- include('./partials/nav.ejs')%>
     </nav>
 
-    <h1 class="city">DETROIT</h1>
+    <img class="logo" src="https://assets.cubsinsider.com/wp-content/uploads/2018/07/09120835/Tigers9.gif" alt="">
 
-    <h1 class="city-description">Detroit is the largest city in Michigan and rests in Wayne County. It is a major port city on the Detroit River and is known as the world's traditional auto center. The auto industry and famous music scene has earned it the nicknames The Motor City and Motown.</h1>
-
+    <h1 class="city-description">Detroit is the largest city in Michigan and rests in Wayne County. It is a major port city on the Detroit River and is known as the world's traditional auto center. The auto industry and famous music scene has earned it the nicknames <span class="nickname">The Motor City</span> and <span class="nickname">Motown</span>.</h1>
+    
     <div class="container">
 
         <div class="card" style="width: 28rem;">
             <p class="titles">Restaurants</p>
             <div class="card-body">
-                <img class="card-img-top" src="" alt="Card image cap">
+                <img class="card-img-top" src="https://media-cdn.tripadvisor.com/media/photo-s/0e/2f/26/1a/our-lovely-minimal-dining.jpg" alt="Card image cap">
                 <% for (let i = 0; i < restaurants.length; i++) { %>
-                    
                     <div class="card-title">
                         <%=restaurants[i].name%>
                     <h4 class="card-text"><%=restaurants[i].location%></h4>
                     <h5 class="card-text"><%=restaurants[i].hours%></h5>
-                    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                 </div>
-                
                 <% } %>
             </div>
           </div>
@@ -41,16 +38,13 @@
           <div class="card" style="width: 28rem;">
             <p class="titles">Landmarks</p>
             <div class="card-body">
-                <img class="card-img-top" src="" alt="Card image cap">
+                <img class="card-img-top" src="https://www.gannett-cdn.com/presto/2019/04/04/PDTF/bb7bf4ff-1c47-435d-b4ea-3df289d0e880-openingday_040419_kpm_1082.jpg" alt="Card image cap">
                 <% for (let i = 0; i < landmarks.length; i++) { %>
-                    
                     <div class="card-title">
                         <%=landmarks[i].name%>
                     <h4 class="card-text"><%=landmarks[i].location%></h4>
                     <h5 class="card-text"><%=landmarks[i].hours%></h5>
-                    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                 </div>
-                
                 <% } %>
             </div>
           </div>
@@ -58,26 +52,22 @@
           <div class="card" style="width: 28rem;">
             <p class="titles">Events</p>
             <div class="card-body">
-                <img class="card-img-top" src="" alt="Card image cap">
+                <img class="card-img-top" src="https://www.gannett-cdn.com/presto/2020/10/07/PDTF/50f01af0-2dbf-48d0-a2ec-af3b02bdb16a-autoshowpublic_011919_kpm_9.jpg" alt="Card image cap">
                 <% for (let i = 0; i < events.length; i++) { %>
-                    
                     <div class="card-title">
                         <%=events[i].name%>
                     <h4 class="card-text"><%=events[i].location%></h4>
                     <h5 class="card-text"><%=events[i].hours%></h5>
-                    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                 </div>
-                
                 <% } %>
             </div>
           </div>
 
     </div>
 
-
     <div class="container2">
-        <a href="/comments/new">Leave a comment!</a>
-        <br>
+        <p>Leave a comment!</p>
+    </p><a href="/comments/new"><span class="comment-button">Comment</span></a>
         <br>
         <% for (let i=0; i<comments.length;i++) { %>
             <a href="/comments/<%=comments[i]._id%>/edit">
@@ -86,36 +76,42 @@
             <%=comments[i].comment%>
             <br>
             <br>
-            <br>
         <% } %>
     </div>
 
-
-    <%- include('./partials/footer.ejs')%>
+    <footer>
+        <%- include('./partials/footer.ejs')%>
+    </footer>
+    
 
     <style>
     * {
         padding: 0;
         margin: 0;
-        text-decoration: none;
-        list-style: none;
         box-sizing: border-box;
         font-family: 'Bebas Neue', cursive;
         text-align: center;
+        color: #FC4614;
     }
 
     body {
         height: 100vh;
-    }
-
-    .titles {
-        text-align: center;
-    }
+        background-color: gray;
+        }
 
     .container2 {
-        border: 1px solid black;
-        text-align: center;
-        margin: 100px 0;
+        border: 2px solid white;
+        border-radius: 10px;
+        background-color: #062343;
+        box-shadow: 5px 5px 20px #FC4614;
+        color: #FC4614;
+        word-wrap: break-word;
+        margin: auto;
+        margin-top: 100px;
+        margin-bottom: 100px;
+        width: 70%;
+        padding: 10px;
+        text-align: left;
     }
 
     .container {
@@ -124,44 +120,99 @@
         justify-content: space-evenly;
         font-size: 30px;
         margin-top: 50px;
+        color: #FC4614;
     }
     .card {
-        border: 1px solid black;
+        border: 2px solid white;
+        background-color: #062343;
+        border-radius: 10px;
+        box-shadow: 5px 5px 20px #FC4614;
     }
     .card-img-top {
         height: 150px;
-        width: 150px;
+        width: 237px;
         text-align: center;
         margin: 0 auto;
         display: block;
+        border: 2px solid white;
+        border-radius: 10px;
     }
     .card-body {
         text-align: center;
         margin: 10px;
+        background-color: #062343;
+        color: #FC4614
     }
     .card-title {
         font-size: 24px;
-        border: 1px solid black;
+        border: 2px solid white;
         margin: 10px;
+        border-radius: 10px;
+        background-color: #062343;
+        color: #FC4614;
     }
 
-    .city {
-        text-align: center;
-        border: 1px solid black;
-        font-size: 28px;
-        display: inline-block;
-        width: 80%;
-        font-family: 'Bebas Neue', cursive;
-    }
 
     .city-description {
         text-align: center;
-        border: 1px solid black;
-        font-size: 18px;
+        font-size: 20px;
         display: inline-block;
         width: 80%;
         font-family: 'Bebas Neue', cursive;
+        color: #062343;
+        margin-top: 50px;
     }
+
+    .logo {
+        width: 400px;
+        height: 250px;
+        border: 3px solid white;
+        border-radius: 10px;
+        box-shadow: 5px 5px 20px #FC4614;
+        margin-top: 50px;
+    }
+
+    .car-art {
+        display: none;
+    }
+
+    .airplane-art {
+        display: none;
+    }
+
+    .main {
+        border: 2px solid white;
+        background-color: #062343;
+    }
+
+    .footer {
+        border: 2px solid white;
+        background-color: #062343;
+    }
+
+    .nickname {
+        color: #FC4614;
+    }
+
+    a { text-decoration: none; color: white;}
+    a:visited { text-decoration: none; color:white; }
+    a:hover { text-decoration: none; color:white; }
+    a:focus { text-decoration: none; color:white; }
+    a:hover, a:active { text-decoration: none; color:white }
+
+    .comment-button {
+        border: 1px solid white;
+        border-radius: 3px;
+        color: white;
+        padding: 5px;
+        float: right;
+    }
+
+    .comment-button:hover {
+        background-color: #FC4614;
+        transition: ease-in 0.2s;
+    }
+    
 
     @media only screen and (max-width: 985px) {
     .container {
@@ -170,7 +221,7 @@
     }
 
     .card {
-        margin: 50px;
+        margin: 25px;
     }
 }
 

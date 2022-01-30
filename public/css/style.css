@@ -1,6 +1,6 @@
 /* NAV BAR */
 .navbar {
-   border: 1px solid black;
+   /* border: 1px solid black; */
    width: 100%;
 }
 .navbar ul{
@@ -30,23 +30,38 @@ a:hover, a:active { text-decoration: none; color:black }
     display: inline-block;
     margin: 0 auto;
     font-size: 60px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
+.car-art {
+    height: 50px;
+    width: 100px;
+    margin-right: 5px;
+}
+
+.airplane-art {
+    height: 50px;
+    width: 80px;
+}
+
+.main {
+    border-radius: 5px;
+    border: 2px solid #317773;
+}
 
 /* OTHERS */
-*{
+/* *{
     padding: 0;
     margin: 0;
     text-decoration: none;
     list-style: none;
     box-sizing: border-box;
     font-family: 'Bebas Neue', cursive;
-}
+} */
 
 .detroit {
     font-family: 'Bebas Neue', cursive;
-    color: orangered;
+    color: #FC4614;
 }
 .tpa {
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -59,12 +74,12 @@ a:hover, a:active { text-decoration: none; color:black }
 
 /* FOOTER */
 .footer {
-    border: 1px solid black;
+    border-radius: 5px;
+    border: 2px solid #317773;
     left: 0;
     bottom: 0;
     width: 100%;
     text-align: center;
-    /* position: relative; */
 }
 .footer ul {
     display: inline-block;

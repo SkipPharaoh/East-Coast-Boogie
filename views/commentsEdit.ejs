@@ -56,12 +56,19 @@
     <%- include('./partials/footer.ejs')%>
 
     <style>
+        * {
+            font-family: 'Sedgwick Ave', cursive;
+            color: #317773;
+            background-color: #E2D1F9;
+        }
+
         .container {
             width: 80vw;
             height: 70vw;
             margin: 50px auto;
             display: flex;
             border-radius: 10px;
+            background-color: white;
         }
 
         .side {
@@ -70,25 +77,29 @@
             background-size: cover;
             background-repeat: no-repeat;
             border-radius: 10px 0 0 10px;
+            border: 2px solid #317773;
+            box-shadow: 5px 5px 50px #E2D1F9;
         }
 
         .comment {
             width: 50%;
-            background: palevioletred;
+            background: #E2D1F9;
             border-radius: 0 10px 10px 0;
             padding: 15px;
             box-sizing: border-box;
             overflow: auto; 
+            border: 2px solid #317773;
+            box-shadow: 5px 5px 50px #E2D1F9;
         }
 
         h1 {
             font-family: 'Sedgwick Ave', cursive;
             font-weight: 500;
-            color: white;
+            color: #317773;
         }
 
         fieldset {
-            border: 2px solid red;
+            border: 2px solid #317773;
             border-radius: 5px;
             padding: 20px;
             margin: 20px 0;
@@ -98,13 +109,13 @@
             padding: 0px 10px;
             font-family: 'Sedgwick Ave', cursive;
             font-weight: 500;
-            color: white;
+            color: #317773;
         }
 
         label {
             font-family: 'Sedgwick Ave', cursive;
             font-weight: 200;
-            color: white;
+            color: #317773;
             display: block;
         }
 
@@ -119,31 +130,36 @@
             padding: 10px;
             box-sizing: border-box;
             border-radius: 5px;
-            border: 1px solid white; 
+            border: 1px solid #317773;
         }
 
         input:focus {
             outline: 0;
-            border: 1px solid white;
+            border: 1px solid #317773;
         }
 
         input[type="submit"] {
             width: 100%;
             height: 50px;
             background: white;
-            box-shadow: 2px 2px red;
+            box-shadow: 2px 2px #317773;
             font-family: 'Sedgwick Ave', cursive;
             font-size: 1.3em;
-            color: palevioletred;
+            color: #317773;
             border: 0px;
             transition: 0.2s ease-in-out;
         }
 
         input[type="submit"]:hover {
             cursor: pointer;
-            background: red;
+            background: #317773;
             color: white;
             box-shadow: 2px 2px white;
+        }
+
+        #select {
+            width: 100%;
+            border-radius: 10px;
         }
     </style>
 
