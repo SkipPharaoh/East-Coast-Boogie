@@ -61,6 +61,7 @@ async function createAtlanta() {
         // Events
         let houseInThePark = await Category.create(atlEvent1)
         let trapBrunch = await Category.create(atlEvent2)
+        let dogwoodFestival = await Category.create(atlEvent3)
 
         atlanta.categories.push(
             // Landmarks
@@ -68,7 +69,7 @@ async function createAtlanta() {
             // Restaurants
             sluttyVegan, theVarsity, waffleHouse,
             //Events
-            houseInThePark, trapBrunch
+            houseInThePark, trapBrunch, dogwoodFestival,
             )
         atlanta.save()
     } catch(err) {
@@ -143,12 +144,12 @@ const atlEvent2 = {
 }
 
 const atlEvent3 = {
-    name: "",
-    location: "",
-    hours: "",
+    name: "Atlanta Dogwood Festival",
+    location: "Piedmont Park",
+    hours: "11am-8:30pm April 8-10th",
     payForEntrance: false,
     category: "events"
-}
+  }
 
 
 // // DETROIT

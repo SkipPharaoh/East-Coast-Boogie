@@ -72,6 +72,11 @@ a:hover, a:active { text-decoration: none; color:black }
     color: rgb(70, 97, 250);
 }
 
+.atl {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #942525;
+}
+
 /* FOOTER */
 .footer {
     border-radius: 5px;
