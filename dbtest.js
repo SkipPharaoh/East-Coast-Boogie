@@ -1,9 +1,8 @@
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://127.0.0.1:27017/eastCoastBoogie')
-let db = mongoose.connection
-db.on('connected', ()=> {
-    main()
-})
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/eastCoastBoogie'
+mongoose.connect(MONGODB_URI, ()=>{
+    main(),
+    console.log('Mongoose connected at: ' + MONGODB_URI)})
 
 
 const Category = require('./models/Category.js')
@@ -354,7 +353,7 @@ const nycEvent1 = {
 const nycEvent2 = {
     name: "Rockefeller Center Christmas Tree",
     location: "Midtown",
-    hours: "6am to Midnight",
+    hours: "6am to Midnight from Mid-Nov to Early January",
     payForEntrance: true,
     category: 'events',
 }
@@ -362,7 +361,7 @@ const nycEvent2 = {
 const nycEvent3 = {
     name: "Times Square Countdown",
     location: "Times Square",
-    hours: "Starts @ 3pm",
+    hours: "Starts @ 3pm on New Years Eve",
     payForEntrance: true,
     category: "events"
 }
