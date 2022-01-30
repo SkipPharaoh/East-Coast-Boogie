@@ -1,9 +1,8 @@
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://127.0.0.1:27017/eastCoastBoogie')
-let db = mongoose.connection
-db.on('connected', ()=> {
-    main()
-})
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/eastCoastBoogie'
+mongoose.connect(MONGODB_URI, ()=>{
+    main(),
+    console.log('Mongoose connected at: ' + MONGODB_URI)})
 
 
 const Category = require('./models/Category.js')
@@ -186,74 +185,74 @@ async function createDetroit() {
 
 
 const detLandmark1 = {
-    name: "detLandmark1",
-    location: "Landmark1",
-    hours: "landmarkHours1",
+    name: "Detroit Institute of Arts",
+    location: "Woodward Ave",
+    hours: "9AM-4PM",
     payForEntrance: false,
     category: 'landmarks',
 }
 
 const detLandmark2 = {
-    name: "detLandmark2",
-    location: "Landmark2",
-    hours: "landmarkHours2",
+    name: "Comerica Park",
+    location: "Woodward Ave",
+    hours: "Capacity - 41,083",
     payForEntrance: false,
     category: 'landmarks',
 }
 
 const detLandmark3 = {
-    name: "detLandmark3",
-    location: "Landmark3",
-    hours: "landmarkHours3",
+    name: "Little Caesars Arena",
+    location: "Woodward Ave",
+    hours: "Capacity - 20,000",
     payForEntrance: true,
     category: 'landmarks',
 }
 
 
 const detRestaurant1 = {
-    name: "detRestaurant1",
-    location: "Restaurant1",
-    hours: "restaurantHours1",
+    name: "El Asador Steakhouse",
+    location: "Springwells St",
+    hours: "Mexican",
     payForEntrance: false,
     category: 'placesToEat',
 }
 
 const detRestaurant2 = {
-    name: "detRestaurant2",
-    location: "Restaurant2",
-    hours: "restaurantHours2",
+    name: "Takoi",
+    location: "Michigan Ave",
+    hours: "Thai",
     payForEntrance: false,
     category: 'placesToEat',
 }
 
 const detRestaurant3 = {
-    name: "detRestaurant3",
-    location: "Restaurant3",
-    hours: "restaurantHours3",
+    name: "Ima",
+    location: "Michigan Ave",
+    hours: "Japanese",
     payForEntrance: false,
     category: 'placesToEat',
 }
 
 const detEvent1 = {
-    name: "detEvent1",
-    location: "Event1",
-    hours: "eventHours1",
+    name: "Detroit Auto Show",
+    location: "TCF Center",
+    hours: "September 14th-25th",
     payForEntrance: false,
     category: 'events',
 }
 
 const detEvent2 = {
-    name: "detEvent2",
-    location: "Event2",
-    hours: "eventHours2",
+    name: "Detroit Tree Lighting",
+    location: "Campus Martius Park",
+    hours: "Kicks off in November",
     payForEntrance: false,
     category: 'events',
 }
 
 const detEvent3 = {
-    name: "detEvent3",
-    location: "Event3",
-    hours: "eventHours3",
+    name: "Detroit Jazz Fest",
+    location: "Hart Plaza and Campus Martius",
+    hours: "September 3rd-6th",
     payForEntrance: false,
     category: "events"
 }
