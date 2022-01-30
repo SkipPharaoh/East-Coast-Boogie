@@ -7,77 +7,105 @@
     <title>NYC Comments</title>
 </head>
 <body>
-    <div>
-        <nav>
-            <%- include('./partials/nav.ejs')%>
-        </nav>
-        <h1 class="description">
-            NYC Comments Page
-        </h1>
-    </div>
+    <nav>
+        <%- include('./partials/nav.ejs')%>
+    </nav>
+    <img class="logo" src="https://images.unsplash.com/photo-1643574190467-7913725e58b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1277&q=80" alt="">
     <br>
     <a class="create" href="/comments/new">Create A New Comment Here!</a>
     <section class="container">
         <% for (let i=0; i<comment.length;i++){ %>
-            <a class="nycComment" href="/comments/<%=comment[i]._id%>"><%= comment[i].name%></a>
-            <h5>Comment:</h5>
+            <p class="name"><%= comment[i].name%></p>
             <p><%= comment[i].comment%></p>
-            <form action="/comments/<%=comment[i]._id%>/edit">
-                <input type="submit" value="Edit <%=comment[i].name%>">
+            <form class="comment-button" action="/comments/<%=comment[i]._id%>/edit">
+                <input class="button" type="submit" value="Edit <%=comment[i].name%>">
             </form>
-            <form action="/comments/<%=comment[i]._id%>?_method=DELETE" method="POST">
-                <input type="submit" value="Delete <%=comment[i].name%>">
+            <form class="comment-button" action="/comments/<%=comment[i]._id%>?_method=DELETE" method="POST">
+                <input class="button" type="submit" value="Delete <%=comment[i].name%>">
             </form>
         <% } %>
     </section>
-
+    <footer>
+        <%- include('./partials/footer.ejs')%>
+    </footer>
 </body>
 </html>
 <style>
-h1{
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
     font-family: 'Advent Pro', sans-serif;
-    color: rgb(70, 97, 250);
+    text-align: center;
+    color: #A0F2EA;
 }
-h5{
-    font-family: 'Advent Pro', sans-serif;
+.logo {
+    width: 400px;
+    height: 250px;
+    border: 3px solid #1B0273;
+    border-radius: 10px;
+    box-shadow: 5px 5px 20px #A0F2EA;
+    margin-top: 50px;
 }
-.container {
-    font-size: 22px;
-    color:rgb(70, 97, 250);
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin-left: auto;
+body {
+    height: 100vh;
+    background-color: #E1B598;
 }
-.create {
-    font-size: 22px;
-    color:rgb(70, 97, 250);
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    font-family: 'Advent Pro', sans-serif;
+.car-art {
+    display: none;
 }
-.create:hover{
-    text-shadow: 0px 0px 5px rgb(74, 17, 180);
-    color: rgb(70, 97, 250)
+
+.airplane-art {
+    display: none;
 }
-h3 {
-    font-size: 22px;
-    color:rgb(70, 97, 250);
+
+.main {
+    border: 2px solid white;
+    background-color: #1B0273;
 }
-p{
-    font-family: 'Advent Pro', sans-serif;
+
+.footer {
+    border: 2px solid white;
+    background-color: #1B0273;
 }
-.nycComment, input{
-    font-family: 'Advent Pro', sans-serif;
+.comment-button {
+    color: white;
+    padding: 5px;
+}
+.button {
+    background-color: #3966BF;
+    color: white;
+}
+.button:hover {
+    background-color: #A0F2EA;
+    color: #1B0273;
+    transition: ease-in 0.2s;
     cursor: pointer;
 }
-.nycComment:hover, input:hover{
-    text-shadow: 0px 0px 5px greenyellow;
-    color: red
+a { text-decoration: none; color: white;}
+a:visited { text-decoration: none; color:white; }
+a:hover { text-decoration: none; color:white; }
+a:focus { text-decoration: none; color:white; }
+a:hover, a:active { text-decoration: none; color:white }
+.name{
+    color: #1B0273
 }
-input:hover{
-    background-color: rgb(70, 97, 250);
-    color: white
+.create {
+    color: #A0F2EA
+}
+p {
+    color: #4A88D9;
+}
+._blank{
+    color: #A0F2EA;
+}
+@media only screen and (max-width: 985px) {
+.container {
+    display: inline-block;
+    text-align: center;
+}
+.card {
+    margin: 25px;
+}
 }
 </style>
