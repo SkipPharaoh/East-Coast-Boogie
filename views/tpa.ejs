@@ -66,6 +66,7 @@
         <p>Leave a comment!</p>
     </p><a href="/comments/new"><span class="comment-button">Comment</span></a>
         <br>
+        <br>
         <% for (let i=0; i<comments.length;i++) { %>
             <a href="/comments/<%=comments[i]._id%>/edit">
             <%=comments[i].name%> </a>
