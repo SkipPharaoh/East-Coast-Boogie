@@ -1,3 +1,5 @@
+![GitHub language count](https://img.shields.io/github/languages/count/SkipPharaoh/East-Coast-Boogie?color=ff0000&style=plastic)
+![GitHub forks](https://img.shields.io/github/forks/SkipPharaoh/East-Coast-Boogie?logoColor=ff0000&style=social)
 # East-Coast-Boogie
 A couple cool cities if you're on a road trip on the east coast! Users have the ability to view great experiences by categories of:
 1) Places to eat
